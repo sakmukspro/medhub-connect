@@ -1,13 +1,56 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import aboutTeam from "@/assets/about-team.jpg";
+import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: "20+", label: "Years Experience" },
-  { value: "500+", label: "Hospitals Served" },
-  { value: "100+", label: "Products" },
-  { value: "50+", label: "Service Contracts" },
+  { value: 20, suffix: "+", label: "Years Experience" },
+  { value: 500, suffix: "+", label: "Hospitals Served" },
+  { value: 100, suffix: "+", label: "Products" },
+  { value: 50, suffix: "+", label: "Service Contracts" },
 ];
+
+function useCountUp(end: number, duration = 2000) {
+  const [count, setCount] = useState(0);
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect(); } },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
+    const steps = 60;
+    const increment = end / steps;
+    let current = 0;
+    const interval = setInterval(() => {
+      current += increment;
+      if (current >= end) { setCount(end); clearInterval(interval); }
+      else setCount(Math.floor(current));
+    }, duration / steps);
+    return () => clearInterval(interval);
+  }, [started, end, duration]);
+
+  return { count, ref };
+}
+
+const StatCard = ({ value, suffix, label }: { value: number; suffix: string; label: string }) => {
+  const { count, ref } = useCountUp(value);
+  return (
+    <div ref={ref} className="text-center p-4 rounded-lg bg-muted">
+      <div className="text-2xl font-extrabold font-heading text-primary">{count}{suffix}</div>
+      <div className="text-xs text-muted-foreground mt-1">{label}</div>
+    </div>
+  );
+};
 
 const WelcomeSection = () => (
   <section className="section-padding">
@@ -25,10 +68,7 @@ const WelcomeSection = () => (
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
             {stats.map((s) => (
-              <div key={s.label} className="text-center p-4 rounded-lg bg-muted">
-                <div className="text-2xl font-extrabold font-heading text-primary">{s.value}</div>
-                <div className="text-xs text-muted-foreground mt-1">{s.label}</div>
-              </div>
+              <StatCard key={s.label} value={s.value} suffix={s.suffix} label={s.label} />
             ))}
           </div>
 
