@@ -2,12 +2,29 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/radping-logo.jpeg";
+import productInjector from "@/assets/product-injector-single.jpg";
+import productMobileXray from "@/assets/product-mobile-xray.jpg";
+import productFixedXray from "@/assets/product-fixed-xray.jpg";
+import productCArm from "@/assets/product-c-arm.jpg";
+import productCathlab from "@/assets/product-mobile-cathlab.jpg";
+import productDicom from "@/assets/product-dicom-printer.jpg";
+import productDisplay from "@/assets/product-medical-display.jpg";
 
 interface NavItem {
   label: string;
   path: string;
-  children?: { label: string; path: string }[];
+  children?: { label: string; path: string; image?: string }[];
 }
+
+const productImages: Record<string, string> = {
+  "Contrast Media Injector": productInjector,
+  "Mobile X-Ray": productMobileXray,
+  "Fixed X-Ray": productFixedXray,
+  "Surgical C-Arm": productCArm,
+  "Mobile Cathlab": productCathlab,
+  "DICOM Film Printer": productDicom,
+  "Medical Display Monitor": productDisplay,
+};
 
 const navItems: NavItem[] = [
   { label: "Home", path: "/" },
@@ -15,8 +32,8 @@ const navItems: NavItem[] = [
     label: "About Us", path: "/about",
     children: [
       { label: "Core Team", path: "/about#core-team" },
-      { label: "Our Clients", path: "/about#clients" },
-      { label: "Quality Process", path: "/about#quality" },
+      { label: "Our Clients", path: "/our-clients" },
+      { label: "Quality Process", path: "/quality-process" },
       { label: "Certifications", path: "/certifications" },
     ],
   },
@@ -58,8 +75,34 @@ const navItems: NavItem[] = [
   },
 ];
 
-const DropdownMenu = ({ items, show }: { items: { label: string; path: string }[]; show: boolean }) => {
+const DropdownMenu = ({ items, show, isProducts }: { items: { label: string; path: string }[]; show: boolean; isProducts?: boolean }) => {
   if (!show) return null;
+
+  if (isProducts) {
+    return (
+      <div className="absolute top-full left-0 mt-1 bg-card border border-border rounded-lg shadow-lg py-3 px-3 min-w-[520px] z-50">
+        <div className="grid grid-cols-2 gap-2">
+          {items.map((item) => (
+            <Link
+              key={item.path + item.label}
+              to={item.path}
+              className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium font-heading text-foreground hover:text-primary hover:bg-primary/5 transition-colors group"
+            >
+              {productImages[item.label] && (
+                <img
+                  src={productImages[item.label]}
+                  alt={item.label}
+                  className="w-10 h-10 rounded-md object-cover flex-shrink-0 border border-border group-hover:border-primary/30 transition-colors"
+                />
+              )}
+              <span>{item.label}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="absolute top-full left-0 mt-1 bg-card border border-border rounded-lg shadow-lg py-2 min-w-[220px] z-50">
       {items.map((item) => (
@@ -123,7 +166,7 @@ const MainNav = () => {
                 {item.children && <ChevronDown className="w-3.5 h-3.5" />}
               </Link>
               {item.children && (
-                <DropdownMenu items={item.children} show={activeDropdown === item.label} />
+                <DropdownMenu items={item.children} show={activeDropdown === item.label} isProducts={item.label === "Products"} />
               )}
             </div>
           ))}
@@ -166,8 +209,11 @@ const MainNav = () => {
                       key={child.path + child.label}
                       to={child.path}
                       onClick={() => setOpen(false)}
-                      className="block pl-10 pr-6 py-2.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+                      className="flex items-center gap-3 pl-10 pr-6 py-2.5 text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
+                      {item.label === "Products" && productImages[child.label] && (
+                        <img src={productImages[child.label]} alt={child.label} className="w-8 h-8 rounded object-cover border border-border" />
+                      )}
                       {child.label}
                     </Link>
                   ))}
