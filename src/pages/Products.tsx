@@ -2,15 +2,22 @@ import Layout from "@/components/layout/Layout";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import productInjector from "@/assets/product-injector-single.jpg";
+import productMobileXray from "@/assets/product-mobile-xray.jpg";
+import productFixedXray from "@/assets/product-fixed-xray.jpg";
+import productCArm from "@/assets/product-c-arm.jpg";
+import productCathlab from "@/assets/product-mobile-cathlab.jpg";
+import productDicom from "@/assets/product-dicom-printer.jpg";
+import productDisplay from "@/assets/product-medical-display.jpg";
 
-const categories = [
-  { name: "Imaging Equipment", products: ["CT Scan Machine", "MRI Scanner", "Digital X-Ray", "Ultrasound", "Mammography"] },
-  { name: "Diagnostic Equipment", products: ["Blood Analyzer", "ECG Machine", "Spirometer", "Defibrillator"] },
-  { name: "ICU Equipment", products: ["Ventilator", "ICU Bed", "Infusion Pump", "Suction Machine"] },
-  { name: "Patient Monitoring", products: ["Multi-Parameter Monitor", "Pulse Oximeter", "Cardiac Monitor", "Fetal Monitor"] },
-  { name: "Mobility Aids", products: ["Wheelchair", "Walker", "Stretcher", "Hospital Bed"] },
-  { name: "Surgical Instruments", products: ["OT Light", "OT Table", "Electrosurgical Unit", "Sterilizer"] },
-  { name: "Rehabilitation Equipment", products: ["Treadmill", "Parallel Bars", "Exercise Bike", "TENS Unit"] },
+const products = [
+  { name: "Contrast Media Injector", desc: "Zenith CT injector for enhanced imaging of CT scan, MRI and DSA angiography systems. Available in Single Head, Dual Head, Angio and MRI variants.", image: productInjector, slug: "contrast-media-injector" },
+  { name: "Mobile X-Ray", desc: "Portable digital X-ray systems designed for bedside imaging, emergency rooms, and ICU departments.", image: productMobileXray, slug: "mobile-x-ray" },
+  { name: "Fixed X-Ray", desc: "Digital fixed X-ray systems with high-resolution imaging for radiology departments and diagnostic centers.", image: productFixedXray, slug: "fixed-x-ray" },
+  { name: "Surgical C-Arm", desc: "High-performance C-Arm systems with flat panel detector technology for surgical and orthopedic imaging.", image: productCArm, slug: "surgical-c-arm" },
+  { name: "Mobile Cathlab", desc: "Fully equipped mobile catheterization laboratory for cardiac procedures in remote and underserved areas.", image: productCathlab, slug: "mobile-cathlab" },
+  { name: "DICOM Film Printer", desc: "Medical film printer supporting DICOM standards for high-quality imaging output in radiology.", image: productDicom, slug: "dicom-film-printer" },
+  { name: "Medical Display Monitor", desc: "High-resolution diagnostic display monitors calibrated for radiology workstations and PACS viewing.", image: productDisplay, slug: "medical-display-monitor" },
 ];
 
 const Products = () => (
@@ -19,39 +26,30 @@ const Products = () => (
       <div className="container text-center">
         <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-primary-foreground mb-4">Our Products</h1>
         <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-          Comprehensive range of medical equipment from leading global manufacturers
+          Make in India medical diagnostic devices of world-class quality
         </p>
       </div>
     </section>
 
     <section className="section-padding">
       <div className="container">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((cat) => (
-            <div key={cat.name} className="bg-card rounded-xl border border-border p-6 hover:border-primary/30 transition-colors group" style={{ boxShadow: "var(--shadow-card)" }}>
-              <div className="h-32 bg-muted rounded-lg mb-4 flex items-center justify-center">
-                <span className="text-2xl font-heading font-bold text-muted-foreground/20">{cat.name.split(" ")[0]}</span>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((p) => (
+            <div key={p.name} className="bg-card rounded-xl border border-border overflow-hidden hover:border-primary/30 transition-colors group" style={{ boxShadow: "var(--shadow-card)" }}>
+              <div className="h-56 overflow-hidden">
+                <img src={p.image} alt={p.name} loading="lazy" width={640} height={512} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
-              <h3 className="font-heading font-bold text-lg mb-3 group-hover:text-primary transition-colors">{cat.name}</h3>
-              <ul className="space-y-1 mb-4">
-                {cat.products.map((p) => (
-                  <li key={p} className="text-muted-foreground text-sm flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0" />{p}
-                  </li>
-                ))}
-              </ul>
-              <Button asChild variant="outline" size="sm" className="font-heading text-primary border-primary hover:bg-primary hover:text-primary-foreground">
-                <Link to={`/products/${cat.name.toLowerCase().replace(/ /g, "-")}`}>
-                  View Category <ArrowRight className="w-4 h-4 ml-1" />
-                </Link>
-              </Button>
+              <div className="p-6">
+                <h3 className="font-heading font-bold text-xl mb-3 group-hover:text-primary transition-colors">{p.name}</h3>
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{p.desc}</p>
+                <Button asChild variant="outline" size="sm" className="font-heading text-primary border-primary hover:bg-primary hover:text-primary-foreground">
+                  <Link to={`/products/${p.slug}`}>
+                    View Details <ArrowRight className="w-4 h-4 ml-1" />
+                  </Link>
+                </Button>
+              </div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-16 text-center bg-muted rounded-xl p-8">
-          <p className="text-muted-foreground text-sm mb-2">We work with leading brands in the industry including</p>
-          <p className="font-heading font-bold text-lg text-foreground">GE HealthCare • Philips Healthcare • Siemens Healthineers</p>
         </div>
       </div>
     </section>
