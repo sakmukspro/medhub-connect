@@ -1,22 +1,101 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/radping-logo.jpeg";
 
-const navItems = [
+interface NavItem {
+  label: string;
+  path: string;
+  children?: { label: string; path: string }[];
+}
+
+const navItems: NavItem[] = [
   { label: "Home", path: "/" },
-  { label: "About Us", path: "/about" },
-  { label: "Products", path: "/products" },
-  { label: "Solutions", path: "/solutions" },
-  { label: "Industries Served", path: "/industries" },
-  { label: "Services & Support", path: "/services" },
-  { label: "Certifications", path: "/certifications" },
+  {
+    label: "About Us", path: "/about",
+    children: [
+      { label: "Core Team", path: "/about#core-team" },
+      { label: "Our Clients", path: "/about#clients" },
+      { label: "Quality Process", path: "/about#quality" },
+      { label: "Certifications", path: "/certifications" },
+    ],
+  },
+  {
+    label: "Products", path: "/products",
+    children: [
+      { label: "Contrast Media Injector", path: "/products/contrast-media-injector" },
+      { label: "Mobile X-Ray", path: "/products/mobile-x-ray" },
+      { label: "Fixed X-Ray", path: "/products/fixed-x-ray" },
+      { label: "Surgical C-Arm", path: "/products/surgical-c-arm" },
+      { label: "Mobile Cathlab", path: "/products/mobile-cathlab" },
+      { label: "DICOM Film Printer", path: "/products/dicom-film-printer" },
+      { label: "Medical Display Monitor", path: "/products/medical-display-monitor" },
+    ],
+  },
+  {
+    label: "Services", path: "/services",
+    children: [
+      { label: "Healthcare IT Support", path: "/services#it-support" },
+      { label: "Hardware Service (AMC/CMC)", path: "/services#hardware" },
+    ],
+  },
+  {
+    label: "Support", path: "/services#support",
+    children: [
+      { label: "Sales", path: "/contact" },
+      { label: "Technical", path: "/services#technical" },
+      { label: "FAQ", path: "/services#faq" },
+    ],
+  },
+  { label: "Gallery", path: "/gallery" },
   { label: "Contact Us", path: "/contact" },
+  {
+    label: "Partner", path: "/contact#partner",
+    children: [
+      { label: "Become A Partner/Distributor", path: "/contact#partner" },
+      { label: "Certifications", path: "/certifications" },
+    ],
+  },
 ];
+
+const DropdownMenu = ({ items, show }: { items: { label: string; path: string }[]; show: boolean }) => {
+  if (!show) return null;
+  return (
+    <div className="absolute top-full left-0 mt-1 bg-card border border-border rounded-lg shadow-lg py-2 min-w-[220px] z-50">
+      {items.map((item) => (
+        <Link
+          key={item.path + item.label}
+          to={item.path}
+          className="block px-4 py-2 text-sm font-medium font-heading text-foreground hover:text-primary hover:bg-primary/5 transition-colors"
+        >
+          {item.label}
+        </Link>
+      ))}
+    </div>
+  );
+};
 
 const MainNav = () => {
   const [open, setOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
   const location = useLocation();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+
+  useEffect(() => {
+    setOpen(false);
+    setActiveDropdown(null);
+    setMobileExpanded(null);
+  }, [location]);
+
+  const handleMouseEnter = (label: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setActiveDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setActiveDropdown(null), 150);
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
@@ -26,17 +105,27 @@ const MainNav = () => {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-0.5">
           {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className={`px-3 py-2 text-sm font-medium font-heading rounded-md transition-colors hover:text-primary hover:bg-primary/5 ${
-                location.pathname === item.path ? "text-primary bg-primary/5" : "text-foreground"
-              }`}
+            <div
+              key={item.label}
+              className="relative"
+              onMouseEnter={() => item.children && handleMouseEnter(item.label)}
+              onMouseLeave={handleMouseLeave}
             >
-              {item.label}
-            </Link>
+              <Link
+                to={item.path}
+                className={`px-3 py-2 text-sm font-medium font-heading rounded-md transition-colors hover:text-primary hover:bg-primary/5 inline-flex items-center gap-1 ${
+                  location.pathname === item.path ? "text-primary bg-primary/5" : "text-foreground"
+                }`}
+              >
+                {item.label}
+                {item.children && <ChevronDown className="w-3.5 h-3.5" />}
+              </Link>
+              {item.children && (
+                <DropdownMenu items={item.children} show={activeDropdown === item.label} />
+              )}
+            </div>
           ))}
         </nav>
 
@@ -48,18 +137,43 @@ const MainNav = () => {
 
       {/* Mobile nav */}
       {open && (
-        <nav className="lg:hidden border-t border-border bg-background pb-4">
+        <nav className="lg:hidden border-t border-border bg-background pb-4 max-h-[70vh] overflow-y-auto">
           {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              onClick={() => setOpen(false)}
-              className={`block px-6 py-3 text-sm font-medium font-heading transition-colors hover:text-primary hover:bg-primary/5 ${
-                location.pathname === item.path ? "text-primary bg-primary/5" : "text-foreground"
-              }`}
-            >
-              {item.label}
-            </Link>
+            <div key={item.label}>
+              <div className="flex items-center">
+                <Link
+                  to={item.path}
+                  onClick={() => !item.children && setOpen(false)}
+                  className={`flex-1 px-6 py-3 text-sm font-medium font-heading transition-colors hover:text-primary hover:bg-primary/5 ${
+                    location.pathname === item.path ? "text-primary bg-primary/5" : "text-foreground"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+                {item.children && (
+                  <button
+                    onClick={() => setMobileExpanded(mobileExpanded === item.label ? null : item.label)}
+                    className="px-4 py-3 text-muted-foreground"
+                  >
+                    <ChevronDown className={`w-4 h-4 transition-transform ${mobileExpanded === item.label ? "rotate-180" : ""}`} />
+                  </button>
+                )}
+              </div>
+              {item.children && mobileExpanded === item.label && (
+                <div className="bg-muted">
+                  {item.children.map((child) => (
+                    <Link
+                      key={child.path + child.label}
+                      to={child.path}
+                      onClick={() => setOpen(false)}
+                      className="block pl-10 pr-6 py-2.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      {child.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </nav>
       )}

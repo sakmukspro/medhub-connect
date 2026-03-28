@@ -14,11 +14,11 @@ const Testimonials = () => {
   const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: false }));
 
   return (
-    <section className="section-padding bg-muted">
+    <section className="section-padding bg-topbar text-topbar-foreground">
       <div className="container">
         <div className="text-center mb-12">
           <span className="text-sm font-semibold text-secondary uppercase tracking-wider">Testimonials</span>
-          <h2 className="section-title mt-2">What Our Clients Say</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-topbar-foreground mb-4 mt-2">What Our Clients Say</h2>
         </div>
         <Carousel
           opts={{ align: "start", loop: true }}
@@ -28,12 +28,12 @@ const Testimonials = () => {
           <CarouselContent className="-ml-4">
             {testimonials.map((t) => (
               <CarouselItem key={t.name} className="pl-4 basis-full md:basis-1/2">
-                <div className="bg-card rounded-xl p-6 border border-border h-full" style={{ boxShadow: "var(--shadow-card)" }}>
-                  <Quote className="w-8 h-8 text-primary/20 mb-4" />
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">"{t.text}"</p>
+                <div className="bg-background/10 backdrop-blur-sm rounded-xl p-6 border border-topbar-foreground/10 h-full">
+                  <Quote className="w-8 h-8 text-secondary/60 mb-4" />
+                  <p className="text-topbar-foreground/80 text-sm leading-relaxed mb-6">"{t.text}"</p>
                   <div>
-                    <div className="font-heading font-bold text-sm">{t.name}</div>
-                    <div className="text-xs text-muted-foreground">{t.role}</div>
+                    <div className="font-heading font-bold text-sm text-topbar-foreground">{t.name}</div>
+                    <div className="text-xs text-topbar-foreground/60">{t.role}</div>
                   </div>
                 </div>
               </CarouselItem>

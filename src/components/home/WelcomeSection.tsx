@@ -58,12 +58,15 @@ const WelcomeSection = () => (
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <div>
           <span className="text-sm font-semibold text-secondary uppercase tracking-wider">Welcome to RadPing</span>
-          <h2 className="section-title mt-2">Hospital Equipment Solution Provider</h2>
+          <h2 className="section-title mt-2">Make in India Medical Devices</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            RADPING IMAGING PVT LTD is a Hospital Equipment Solution Providing Company specializing in Radiology, Cardiology, Dental and Critical Care for over 20 years. We provide products & solutions in the healthcare & industrial imaging domain with continuous innovation.
+            RADPING is the dream of producing Make in India medical diagnostic devices that is of world class quality, and strive to be pioneers in innovating state of the art devices, showing excellence in design and engineering with premium quality medical devices.
+          </p>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            At Radping, innovation is at the forefront of everything we do. Our strong innovation team focuses on improving existing products and introducing new products that address the market feedback and needs identified by our marketing team.
           </p>
           <p className="text-muted-foreground leading-relaxed mb-8">
-            Our experience ranges from large-scale replacement hospital projects to assisting individual departments with the planning and procurement of costly medical systems.
+            We are committed to continuing our tradition of delivering high-quality, innovative healthcare technology products that make a difference in people's lives around the world.
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
