@@ -3,6 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Target, Eye, Heart, ShieldCheck, Clock, Award } from "lucide-react";
 import aboutTeam from "@/assets/about-team.jpg";
+import aboutMission from "@/assets/about-mission.jpg";
+import aboutVision from "@/assets/about-vision.jpg";
+import aboutValues from "@/assets/about-values.jpg";
 
 const values = [
   { icon: ShieldCheck, title: "Quality", desc: "We never compromise on the quality of our products and services." },
@@ -38,10 +41,13 @@ const About = () => (
         <div>
           <h2 className="section-title">Company Overview</h2>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            RADPING IMAGING PVT LTD is a leading Hospital Equipment Solution Providing Company specializing in Radiology, Cardiology, Dental and Critical Care with over 20 years of experience.
+            RADPING is the dream of producing Make in India medical diagnostic devices that is of world class quality, and strive to be pioneers in innovating state of the art devices, showing excellence in design and engineering with premium quality medical devices.
+          </p>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            At Radping, innovation is at the forefront of everything we do. Our strong innovation team focuses on improving existing products and introducing new products that address the market feedback and needs identified by our marketing team.
           </p>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            We provide products & solutions in the healthcare & industrial imaging domain. Our process is specifically designed to meet the total medical equipment planning needs of hospital construction project teams.
+            We are committed to continuing our tradition of delivering high-quality, innovative healthcare technology products that make a difference in people's lives around the world.
           </p>
           <Button asChild className="gradient-bg text-primary-foreground border-0 font-heading font-semibold hover:opacity-90">
             <Link to="/contact">Get In Touch</Link>
@@ -51,42 +57,65 @@ const About = () => (
       </div>
     </section>
 
-    {/* Mission & Vision */}
+    {/* Mission */}
     <section className="section-padding bg-muted">
-      <div className="container grid md:grid-cols-2 gap-8">
-        <div className="bg-card rounded-xl p-8 border border-border">
-          <Target className="w-10 h-10 text-primary mb-4" />
-          <h3 className="font-heading font-bold text-xl mb-3">Our Mission</h3>
-          <p className="text-muted-foreground">To provide world-class medical equipment solutions that enable healthcare facilities to deliver exceptional patient care through innovative technology and reliable support.</p>
-        </div>
-        <div className="bg-card rounded-xl p-8 border border-border">
-          <Eye className="w-10 h-10 text-secondary mb-4" />
-          <h3 className="font-heading font-bold text-xl mb-3">Our Vision</h3>
-          <p className="text-muted-foreground">To be India's most trusted partner in healthcare equipment, empowering every hospital with access to cutting-edge medical technology and unmatched service excellence.</p>
+      <div className="container grid lg:grid-cols-2 gap-12 items-center">
+        <img src={aboutMission} alt="Our Mission" loading="lazy" width={640} height={512} className="rounded-xl shadow-lg" />
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-12 rounded-lg gradient-bg flex items-center justify-center">
+              <Target className="w-6 h-6 text-primary-foreground" />
+            </div>
+            <h2 className="font-heading font-bold text-2xl">Our Mission</h2>
+          </div>
+          <p className="text-muted-foreground leading-relaxed text-lg">
+            To provide technology to the hands of healthcare professionals to diagnose better and efficiently. Our aim is to introduce innovative products that prioritize safety and simplicity to facilitate better patient care, in line with our philosophy of conscious caring.
+          </p>
         </div>
       </div>
     </section>
 
-    {/* Values */}
+    {/* Vision */}
     <section className="section-padding">
-      <div className="container">
-        <div className="text-center mb-12">
-          <h2 className="section-title">Our Values</h2>
-        </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {values.map((v) => (
-            <div key={v.title} className="text-center p-6 rounded-xl bg-muted">
-              <v.icon className="w-10 h-10 text-primary mx-auto mb-3" />
-              <h3 className="font-heading font-bold mb-2">{v.title}</h3>
-              <p className="text-muted-foreground text-sm">{v.desc}</p>
+      <div className="container grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center">
+              <Eye className="w-6 h-6 text-secondary-foreground" />
             </div>
-          ))}
+            <h2 className="font-heading font-bold text-2xl">Our Vision</h2>
+          </div>
+          <p className="text-muted-foreground leading-relaxed text-lg">
+            Create a technology driven support to healthcare professionals to save people's life. To be India's most trusted partner in healthcare equipment, empowering every hospital with access to cutting-edge medical technology and unmatched service excellence.
+          </p>
+        </div>
+        <img src={aboutVision} alt="Our Vision" loading="lazy" width={640} height={512} className="rounded-xl shadow-lg" />
+      </div>
+    </section>
+
+    {/* Core Values */}
+    <section className="section-padding bg-muted">
+      <div className="container">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 className="section-title">Our Core Values</h2>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {values.map((v) => (
+                <div key={v.title} className="bg-card p-5 rounded-xl border border-border">
+                  <v.icon className="w-8 h-8 text-primary mb-3" />
+                  <h3 className="font-heading font-bold mb-1">{v.title}</h3>
+                  <p className="text-muted-foreground text-sm">{v.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <img src={aboutValues} alt="Our Core Values" loading="lazy" width={640} height={512} className="rounded-xl shadow-lg" />
         </div>
       </div>
     </section>
 
     {/* Timeline */}
-    <section className="section-padding bg-muted">
+    <section className="section-padding">
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="section-title">Our Journey</h2>
