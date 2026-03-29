@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
+import ContrastMediaInjector from "./pages/ContrastMediaInjector";
 import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
 import Certifications from "./pages/Certifications";
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/products/contrast-media-injector" element={<ContrastMediaInjector />} />
           <Route path="/products/:slug" element={<ProductDetails />} />
           <Route path="/solutions" element={<Solutions />} />
           <Route path="/services" element={<Services />} />
