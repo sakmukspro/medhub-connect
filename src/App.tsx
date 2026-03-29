@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Products from "./pages/Products";
 import ProductDetails from "./pages/ProductDetails";
+import ContrastMediaInjector from "./pages/ContrastMediaInjector";
 import Solutions from "./pages/Solutions";
 import Services from "./pages/Services";
 import Certifications from "./pages/Certifications";
