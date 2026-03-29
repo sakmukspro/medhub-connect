@@ -8,10 +8,10 @@ import aboutVision from "@/assets/about-vision.jpg";
 import aboutValues from "@/assets/about-values.jpg";
 
 const values = [
-  { icon: ShieldCheck, title: "Quality", desc: "We never compromise on the quality of our products and services." },
-  { icon: Heart, title: "Customer First", desc: "Our clients' needs drive every decision we make." },
-  { icon: Clock, title: "Reliability", desc: "Timely delivery and consistent support you can count on." },
-  { icon: Award, title: "Innovation", desc: "Continuously adopting the latest in medical technology." },
+  { icon: ShieldCheck, title: "Quality", desc: "We never compromise on the quality of our products and services.", color: "bg-emerald-500/15 text-emerald-600" },
+  { icon: Heart, title: "Customer First", desc: "Our clients' needs drive every decision we make.", color: "bg-rose-500/15 text-rose-600" },
+  { icon: Clock, title: "Reliability", desc: "Timely delivery and consistent support you can count on.", color: "bg-amber-500/15 text-amber-600" },
+  { icon: Award, title: "Innovation", desc: "Continuously adopting the latest in medical technology.", color: "bg-sky-500/15 text-sky-600" },
 ];
 
 const timeline = [
@@ -101,8 +101,10 @@ const About = () => (
             <h2 className="section-title">Our Core Values</h2>
             <div className="grid sm:grid-cols-2 gap-6">
               {values.map((v) => (
-                <div key={v.title} className="bg-card p-5 rounded-xl border border-border">
-                  <v.icon className="w-8 h-8 text-primary mb-3" />
+                <div key={v.title} className="bg-card p-5 rounded-xl border border-border hover:shadow-md transition-shadow">
+                  <div className={`w-12 h-12 rounded-xl ${v.color} flex items-center justify-center mb-3`}>
+                    <v.icon className="w-6 h-6" />
+                  </div>
                   <h3 className="font-heading font-bold mb-1">{v.title}</h3>
                   <p className="text-muted-foreground text-sm">{v.desc}</p>
                 </div>
