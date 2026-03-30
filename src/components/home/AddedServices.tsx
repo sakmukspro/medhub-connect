@@ -7,7 +7,9 @@ const services = [
     icon: Video,
     title: "Product Videos",
     desc: "Watch detailed product demonstrations, installation guides and customer testimonials.",
-    color: "bg-rose-500/15 text-rose-600",
+    iconColor: "text-white",
+    bgGradient: "bg-gradient-to-br from-rose-500 to-pink-600",
+    borderColor: "border-rose-200",
     link: "/gallery",
     linkText: "Watch Videos",
   },
@@ -15,7 +17,9 @@ const services = [
     icon: Newspaper,
     title: "News & Installation Feeds",
     desc: "Latest news about our installations, hospital setups, and industry updates across India.",
-    color: "bg-sky-500/15 text-sky-600",
+    iconColor: "text-white",
+    bgGradient: "bg-gradient-to-br from-sky-500 to-blue-600",
+    borderColor: "border-sky-200",
     link: "/blog",
     linkText: "Read Updates",
   },
@@ -23,7 +27,9 @@ const services = [
     icon: Search,
     title: "SEO – LinkedIn & Google",
     desc: "Follow us on LinkedIn and Google for the latest updates on products and healthcare innovations.",
-    color: "bg-emerald-500/15 text-emerald-600",
+    iconColor: "text-white",
+    bgGradient: "bg-gradient-to-br from-emerald-500 to-teal-600",
+    borderColor: "border-emerald-200",
     link: "https://www.linkedin.com/company/radping",
     linkText: "Follow Us",
     external: true,
@@ -32,7 +38,9 @@ const services = [
     icon: FileText,
     title: "Request a Quote",
     desc: "Get a customized quotation for medical equipment tailored to your hospital's requirements.",
-    color: "bg-amber-500/15 text-amber-600",
+    iconColor: "text-white",
+    bgGradient: "bg-gradient-to-br from-amber-500 to-orange-600",
+    borderColor: "border-amber-200",
     link: "/contact",
     linkText: "Get Quote",
   },
@@ -40,14 +48,16 @@ const services = [
     icon: Star,
     title: "Customer Reviews",
     desc: "Read what healthcare professionals say about our products, service and after-sales support.",
-    color: "bg-purple-500/15 text-purple-600",
+    iconColor: "text-white",
+    bgGradient: "bg-gradient-to-br from-purple-500 to-violet-600",
+    borderColor: "border-purple-200",
     link: "/about#testimonials",
     linkText: "Read Reviews",
   },
 ];
 
 const AddedServices = () => (
-  <section className="section-padding">
+  <section className="section-padding bg-gradient-to-br from-muted via-background to-muted">
     <div className="container">
       <div className="text-center mb-12">
         <span className="text-sm font-semibold text-secondary uppercase tracking-wider">More From RadPing</span>
@@ -58,11 +68,10 @@ const AddedServices = () => (
         {services.map((s) => (
           <div
             key={s.title}
-            className="bg-card rounded-xl p-6 border border-border hover:border-primary/30 transition-all group text-center"
-            style={{ boxShadow: "var(--shadow-card)" }}
+            className={`bg-card rounded-xl p-6 border-2 ${s.borderColor} hover:shadow-xl transition-all group text-center hover:-translate-y-1`}
           >
-            <div className={`w-14 h-14 rounded-xl ${s.color} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
-              <s.icon className="w-7 h-7" />
+            <div className={`w-16 h-16 rounded-2xl ${s.bgGradient} flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-lg`}>
+              <s.icon className={`w-8 h-8 ${s.iconColor}`} />
             </div>
             <h3 className="font-heading font-bold text-base mb-2">{s.title}</h3>
             <p className="text-muted-foreground text-sm mb-4 leading-relaxed">{s.desc}</p>
