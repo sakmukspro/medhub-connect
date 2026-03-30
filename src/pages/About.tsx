@@ -57,39 +57,43 @@ const About = () => (
       </div>
     </section>
 
-    {/* Mission */}
+    {/* Mission & Vision - Single Row */}
     <section className="section-padding bg-muted">
-      <div className="container grid lg:grid-cols-2 gap-12 items-center">
-        <img src={aboutMission} alt="Our Mission" loading="lazy" width={640} height={512} className="rounded-xl shadow-lg" />
-        <div>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 rounded-lg gradient-bg flex items-center justify-center">
-              <Target className="w-6 h-6 text-primary-foreground" />
+      <div className="container">
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Mission */}
+          <div className="relative rounded-2xl overflow-hidden shadow-xl group">
+            <img src={aboutMission} alt="Our Mission" loading="lazy" width={640} height={400} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-purple-900/90 via-purple-900/50 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-lg">
+                  <Target className="w-5 h-5 text-white" />
+                </div>
+                <h2 className="font-heading font-bold text-xl">Our Mission</h2>
+              </div>
+              <p className="text-white/90 text-sm leading-relaxed">
+                To provide technology to the hands of healthcare professionals to diagnose better and efficiently. Our aim is to introduce innovative products that prioritize safety and simplicity to facilitate better patient care.
+              </p>
             </div>
-            <h2 className="font-heading font-bold text-2xl">Our Mission</h2>
           </div>
-          <p className="text-muted-foreground leading-relaxed text-lg">
-            To provide technology to the hands of healthcare professionals to diagnose better and efficiently. Our aim is to introduce innovative products that prioritize safety and simplicity to facilitate better patient care, in line with our philosophy of conscious caring.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    {/* Vision */}
-    <section className="section-padding">
-      <div className="container grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center">
-              <Eye className="w-6 h-6 text-secondary-foreground" />
+          {/* Vision */}
+          <div className="relative rounded-2xl overflow-hidden shadow-xl group">
+            <img src={aboutVision} alt="Our Vision" loading="lazy" width={640} height={400} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-sky-900/90 via-sky-900/50 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center shadow-lg">
+                  <Eye className="w-5 h-5 text-white" />
+                </div>
+                <h2 className="font-heading font-bold text-xl">Our Vision</h2>
+              </div>
+              <p className="text-white/90 text-sm leading-relaxed">
+                Create a technology driven support to healthcare professionals to save people's life. To be India's most trusted partner in healthcare equipment, empowering every hospital with access to cutting-edge medical technology.
+              </p>
             </div>
-            <h2 className="font-heading font-bold text-2xl">Our Vision</h2>
           </div>
-          <p className="text-muted-foreground leading-relaxed text-lg">
-            Create a technology driven support to healthcare professionals to save people's life. To be India's most trusted partner in healthcare equipment, empowering every hospital with access to cutting-edge medical technology and unmatched service excellence.
-          </p>
         </div>
-        <img src={aboutVision} alt="Our Vision" loading="lazy" width={640} height={512} className="rounded-xl shadow-lg" />
       </div>
     </section>
 

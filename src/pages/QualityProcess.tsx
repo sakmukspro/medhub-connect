@@ -3,12 +3,12 @@ import { ShieldCheck, Search, Settings, CheckCircle, FileCheck, Users } from "lu
 import aboutQuality from "@/assets/about-quality.jpg";
 
 const steps = [
-  { icon: Search, title: "Incoming Inspection", desc: "Every component and raw material undergoes rigorous incoming quality inspection before entering the production line." },
-  { icon: Settings, title: "In-Process Control", desc: "Continuous monitoring and testing during manufacturing to ensure each product meets design specifications." },
-  { icon: CheckCircle, title: "Final Testing", desc: "Comprehensive functional and safety testing of finished products before packaging and dispatch." },
-  { icon: FileCheck, title: "Documentation", desc: "Complete traceability documentation maintained for every product including test reports and certificates." },
-  { icon: Users, title: "Installation Validation", desc: "On-site installation validation by trained engineers with performance verification and user training." },
-  { icon: ShieldCheck, title: "Post-Market Surveillance", desc: "Ongoing monitoring of product performance and customer feedback for continuous improvement." },
+  { icon: Search, title: "Incoming Inspection", desc: "Every component and raw material undergoes rigorous incoming quality inspection before entering the production line.", gradient: "from-sky-500 to-blue-600" },
+  { icon: Settings, title: "In-Process Control", desc: "Continuous monitoring and testing during manufacturing to ensure each product meets design specifications.", gradient: "from-amber-500 to-orange-600" },
+  { icon: CheckCircle, title: "Final Testing", desc: "Comprehensive functional and safety testing of finished products before packaging and dispatch.", gradient: "from-emerald-500 to-teal-600" },
+  { icon: FileCheck, title: "Documentation", desc: "Complete traceability documentation maintained for every product including test reports and certificates.", gradient: "from-purple-500 to-violet-600" },
+  { icon: Users, title: "Installation Validation", desc: "On-site installation validation by trained engineers with performance verification and user training.", gradient: "from-rose-500 to-pink-600" },
+  { icon: ShieldCheck, title: "Post-Market Surveillance", desc: "Ongoing monitoring of product performance and customer feedback for continuous improvement.", gradient: "from-indigo-500 to-blue-700" },
 ];
 
 const QualityProcess = () => (
@@ -48,7 +48,9 @@ const QualityProcess = () => (
               <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full gradient-bg flex items-center justify-center text-primary-foreground text-sm font-bold">
                 {i + 1}
               </div>
-              <s.icon className="w-10 h-10 text-primary mb-4" />
+              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${s.gradient} flex items-center justify-center mb-4 shadow-lg`}>
+                <s.icon className="w-7 h-7 text-white" />
+              </div>
               <h3 className="font-heading font-bold text-lg mb-2">{s.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
             </div>
