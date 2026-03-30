@@ -61,15 +61,15 @@ const navItems: NavItem[] = [
     children: [
       { label: "Sales", path: "/contact" },
       { label: "Technical", path: "/services#technical" },
-      { label: "FAQ", path: "/services#faq" },
+      { label: "FAQ", path: "/faq" },
     ],
   },
   { label: "Gallery", path: "/gallery" },
   { label: "Contact Us", path: "/contact" },
   {
-    label: "Partner", path: "/contact#partner",
+    label: "Partner", path: "/partner",
     children: [
-      { label: "Become A Partner/Distributor", path: "/contact#partner" },
+      { label: "Become A Partner/Distributor", path: "/partner" },
       { label: "Certifications", path: "/certifications" },
     ],
   },
