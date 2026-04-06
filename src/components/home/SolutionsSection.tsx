@@ -1,13 +1,13 @@
 import solutionHospital from "@/assets/solution-hospital.jpg";
 import solutionDiagnostic from "@/assets/solution-diagnostic.jpg";
-import solutionIcu from "@/assets/solution-icu.jpg";
-import solutionMobility from "@/assets/solution-mobility.jpg";
+import solutionSurgicalOt from "@/assets/solution-surgical-ot.jpg";
+import solutionFranchise from "@/assets/solution-franchise.jpg";
 
 const solutions = [
   { image: solutionHospital, title: "Hospital Setup", desc: "End-to-end hospital equipment planning and procurement for new healthcare facilities." },
-  { image: solutionDiagnostic, title: "Diagnostic Lab Equipment", desc: "Complete diagnostic lab setup with imaging, pathology and laboratory equipment." },
-  { image: solutionIcu, title: "ICU Setup", desc: "Fully equipped ICU solutions with ventilators, monitors and critical care systems." },
-  { image: solutionMobility, title: "Patient Mobility Solutions", desc: "Wheelchairs, walkers, stretchers and patient transfer equipment for optimal care." },
+  { image: solutionDiagnostic, title: "Diagnostic Setup", desc: "Complete diagnostic setup with imaging, pathology and laboratory equipment." },
+  { image: solutionSurgicalOt, title: "Surgical OT Setup", desc: "Quality surgical OT equipment with operation tables, lights, monitors and critical care systems." },
+  { image: solutionFranchise, title: "Franchise Model", desc: "Partner with RadPing through our franchise model to distribute medical equipment in your region." },
 ];
 
 const SolutionsSection = () => (

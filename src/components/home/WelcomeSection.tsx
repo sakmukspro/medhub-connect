@@ -57,16 +57,13 @@ const WelcomeSection = () => (
     <div className="container">
       <div className="grid lg:grid-cols-2 gap-12 items-center">
         <div>
-          <span className="text-sm font-semibold text-secondary uppercase tracking-wider">Welcome to RadPing</span>
-          <h2 className="section-title mt-2">Make in India Medical Devices</h2>
+          <span className="text-sm font-semibold text-secondary uppercase tracking-wider">About Us</span>
+          <h2 className="section-title mt-2">Who We Are</h2>
           <p className="text-muted-foreground leading-relaxed mb-6">
-            RADPING is the dream of producing Make in India medical diagnostic devices that is of world class quality, and strive to be pioneers in innovating state of the art devices, showing excellence in design and engineering with premium quality medical devices.
-          </p>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            At Radping, innovation is at the forefront of everything we do. Our strong innovation team focuses on improving existing products and introducing new products that address the market feedback and needs identified by our marketing team.
+            Radping Imaging Private Limited is a medical technology firm that specializes in creating and supplying cutting-edge diagnostic imaging equipment such as Mobile X-Ray, Fixed X-Ray, Surgical C-Arms, Thermography Systems and Contrast Media Injectors. We offer dependable, affordable solutions that enable healthcare providers throughout India and developing international markets by fusing cutting-edge engineering, astute software integration, and a Make in India approach.
           </p>
           <p className="text-muted-foreground leading-relaxed mb-8">
-            We are committed to continuing our tradition of delivering high-quality, innovative healthcare technology products that make a difference in people's lives around the world.
+            Enabling early detection, precise diagnosis, and better patient care in any location by providing healthcare professionals with scalable, sophisticated, and affordable diagnostic imaging systems.
           </p>
 
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
