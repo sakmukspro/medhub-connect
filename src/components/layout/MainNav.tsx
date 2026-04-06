@@ -65,7 +65,6 @@ const navItems: NavItem[] = [
     ],
   },
   { label: "Gallery", path: "/gallery" },
-  { label: "Contact Us", path: "/contact" },
   {
     label: "Partner", path: "/partner",
     children: [
@@ -73,6 +72,7 @@ const navItems: NavItem[] = [
       { label: "Certifications", path: "/certifications" },
     ],
   },
+  { label: "Contact Us", path: "/contact" },
 ];
 
 const DropdownMenu = ({ items, show, isProducts }: { items: { label: string; path: string }[]; show: boolean; isProducts?: boolean }) => {
