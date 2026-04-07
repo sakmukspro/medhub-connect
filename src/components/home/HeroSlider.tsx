@@ -1,28 +1,32 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Shield, Award, CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import heroWheelchair from "@/assets/hero-wheelchair.png";
+import heroWalker from "@/assets/hero-walker.png";
+import heroXray from "@/assets/hero-xray.png";
+import heroMonitor from "@/assets/hero-monitor.png";
 import heroCtScan from "@/assets/hero-ct-scan.jpg";
 import heroIcu from "@/assets/hero-icu.jpg";
 import heroMobility from "@/assets/hero-mobility.jpg";
 
 const slides = [
   {
-    image: heroCtScan,
+    bg: heroCtScan,
     heading: "Advanced Medical Imaging Solutions",
     tagline: "State-of-the-art CT, MRI & X-Ray equipment for modern healthcare facilities",
     cta: "View Products",
     link: "/products",
   },
   {
-    image: heroIcu,
+    bg: heroIcu,
     heading: "Reliable Hospital Equipment Supplier",
     tagline: "Complete ICU setup and patient monitoring solutions trusted by 500+ hospitals",
     cta: "Explore Solutions",
     link: "/solutions",
   },
   {
-    image: heroMobility,
+    bg: heroMobility,
     heading: "Mobility & Patient Care Devices",
     tagline: "Wheelchairs, walkers and rehabilitation equipment for enhanced patient comfort",
     cta: "Browse Products",
@@ -30,51 +34,121 @@ const slides = [
   },
 ];
 
+const floatingProducts = [
+  { img: heroWheelchair, alt: "Wheelchair", className: "top-[15%] right-[5%] w-28 md:w-40", delay: "0s", duration: "4s" },
+  { img: heroWalker, alt: "Walker", className: "bottom-[20%] right-[15%] w-24 md:w-32", delay: "1s", duration: "3.5s" },
+  { img: heroXray, alt: "X-Ray Machine", className: "top-[35%] right-[25%] w-24 md:w-36", delay: "0.5s", duration: "4.5s" },
+  { img: heroMonitor, alt: "Patient Monitor", className: "bottom-[10%] right-[2%] w-20 md:w-28", delay: "1.5s", duration: "3s" },
+];
+
+const trustBadges = [
+  { icon: Shield, label: "ISO 13485 Certified" },
+  { icon: Award, label: "Make in India" },
+  { icon: CheckCircle, label: "500+ Hospitals Trust Us" },
+];
+
 const HeroSlider = () => {
   const [current, setCurrent] = useState(0);
+  const [textVisible, setTextVisible] = useState(true);
 
   useEffect(() => {
-    const timer = setInterval(() => setCurrent((c) => (c + 1) % slides.length), 5000);
+    const timer = setInterval(() => {
+      setTextVisible(false);
+      setTimeout(() => {
+        setCurrent((c) => (c + 1) % slides.length);
+        setTextVisible(true);
+      }, 400);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
-  const go = (dir: number) => setCurrent((c) => (c + dir + slides.length) % slides.length);
+  const go = (dir: number) => {
+    setTextVisible(false);
+    setTimeout(() => {
+      setCurrent((c) => (c + dir + slides.length) % slides.length);
+      setTextVisible(true);
+    }, 400);
+  };
+
+  const slide = slides[current];
 
   return (
-    <section className="relative h-[500px] md:h-[600px] lg:h-[700px] overflow-hidden">
-      {slides.map((slide, i) => (
+    <section className="relative h-[550px] md:h-[650px] lg:h-[720px] overflow-hidden">
+      {/* Background images */}
+      {slides.map((s, i) => (
         <div
           key={i}
-          className={`absolute inset-0 transition-opacity duration-700 ${i === current ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 transition-opacity duration-1000 ${i === current ? "opacity-100" : "opacity-0"}`}
         >
-          <img src={slide.image} alt={slide.heading} className="w-full h-full object-cover" />
-          <div className="absolute inset-0" style={{ background: "var(--gradient-hero-overlay)" }} />
-          <div className="absolute inset-0 flex items-center">
-            <div className="container">
-              <div className="max-w-2xl animate-fade-up">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading text-primary-foreground mb-4 leading-tight">
-                  {slide.heading}
-                </h1>
-                <p className="text-lg md:text-xl text-primary-foreground/80 mb-8">{slide.tagline}</p>
-                <Button asChild size="lg" className="gradient-bg text-primary-foreground font-heading font-semibold px-8 border-0 hover:opacity-90">
-                  <Link to={slide.link}>{slide.cta}</Link>
-                </Button>
-              </div>
-            </div>
-          </div>
+          <img src={s.bg} alt="" className="w-full h-full object-cover" />
         </div>
       ))}
 
-      <button onClick={() => go(-1)} className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/20 hover:bg-background/40 backdrop-blur-sm rounded-full p-2 text-primary-foreground transition-colors" aria-label="Previous">
+      {/* Overlay */}
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to right, hsla(220, 20%, 8%, 0.85) 0%, hsla(220, 20%, 8%, 0.6) 50%, hsla(220,20%,8%,0.3) 100%)" }} />
+
+      {/* Content */}
+      <div className="absolute inset-0 flex items-center">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* LEFT - Text */}
+            <div className={`transition-all duration-700 ${textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading leading-tight mb-4" style={{ color: "white" }}>
+                <span className="gradient-text">{slide.heading.split(" ").slice(0, 2).join(" ")}</span>{" "}
+                <span style={{ color: "white" }}>{slide.heading.split(" ").slice(2).join(" ")}</span>
+              </h1>
+              <p className="text-base md:text-lg mb-8 max-w-lg" style={{ color: "hsla(0,0%,100%,0.8)" }}>
+                {slide.tagline}
+              </p>
+              <Button asChild size="lg" className="gradient-bg text-primary-foreground font-heading font-semibold px-8 border-0 hover:opacity-90 mb-8">
+                <Link to={slide.link}>{slide.cta}</Link>
+              </Button>
+
+              {/* Trust badges */}
+              <div className="flex flex-wrap gap-4">
+                {trustBadges.map((badge) => (
+                  <div key={badge.label} className="flex items-center gap-2 bg-background/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
+                    <badge.icon className="w-4 h-4" style={{ color: "hsl(30, 90%, 55%)" }} />
+                    <span className="text-xs font-medium" style={{ color: "hsla(0,0%,100%,0.9)" }}>{badge.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* RIGHT - Floating products */}
+            <div className="hidden lg:block relative h-[500px]">
+              {floatingProducts.map((p, i) => (
+                <div
+                  key={i}
+                  className={`absolute ${p.className} drop-shadow-2xl`}
+                  style={{
+                    animation: `heroFloat ${p.duration} ease-in-out infinite`,
+                    animationDelay: p.delay,
+                    filter: "drop-shadow(0 20px 40px hsla(310, 60%, 42%, 0.25))",
+                  }}
+                >
+                  <img src={p.img} alt={p.alt} className="w-full h-auto" />
+                </div>
+              ))}
+              {/* Glow */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full opacity-20" style={{ background: "radial-gradient(circle, hsl(310 60% 42%), transparent)" }} />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Nav arrows */}
+      <button onClick={() => go(-1)} className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/20 hover:bg-background/40 backdrop-blur-sm rounded-full p-2 transition-colors" style={{ color: "white" }} aria-label="Previous">
         <ChevronLeft className="w-6 h-6" />
       </button>
-      <button onClick={() => go(1)} className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/20 hover:bg-background/40 backdrop-blur-sm rounded-full p-2 text-primary-foreground transition-colors" aria-label="Next">
+      <button onClick={() => go(1)} className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/20 hover:bg-background/40 backdrop-blur-sm rounded-full p-2 transition-colors" style={{ color: "white" }} aria-label="Next">
         <ChevronRight className="w-6 h-6" />
       </button>
 
+      {/* Dots */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
         {slides.map((_, i) => (
-          <button key={i} onClick={() => setCurrent(i)} className={`w-3 h-3 rounded-full transition-colors ${i === current ? "bg-secondary" : "bg-primary-foreground/40"}`} aria-label={`Slide ${i + 1}`} />
+          <button key={i} onClick={() => { setTextVisible(false); setTimeout(() => { setCurrent(i); setTextVisible(true); }, 400); }} className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-8 bg-secondary" : "w-3 bg-white/40"}`} aria-label={`Slide ${i + 1}`} />
         ))}
       </div>
     </section>
