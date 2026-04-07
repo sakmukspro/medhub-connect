@@ -115,24 +115,8 @@ const HeroSlider = () => {
               </div>
             </div>
 
-            {/* RIGHT - Floating products */}
-            <div className="hidden lg:block relative h-[500px]">
-              {floatingProducts.map((p, i) => (
-                <div
-                  key={i}
-                  className={`absolute ${p.className} drop-shadow-2xl`}
-                  style={{
-                    animation: `heroFloat ${p.duration} ease-in-out infinite`,
-                    animationDelay: p.delay,
-                    filter: "drop-shadow(0 20px 40px hsla(310, 60%, 42%, 0.25))",
-                  }}
-                >
-                  <img src={p.img} alt={p.alt} className="w-full h-auto" />
-                </div>
-              ))}
-              {/* Glow */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full opacity-20" style={{ background: "radial-gradient(circle, hsl(310 60% 42%), transparent)" }} />
-            </div>
+            {/* RIGHT - empty for clean look */}
+            <div className="hidden lg:block relative h-[500px]" />
           </div>
         </div>
       </div>
