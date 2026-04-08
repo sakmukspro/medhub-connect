@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Shield, Award, CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import { Shield, Award, CheckCircle, ChevronLeft, ChevronRight, Phone } from "lucide-react";
 import heroWheelchair from "@/assets/hero-wheelchair.png";
 import heroWalker from "@/assets/hero-walker.png";
 import heroXray from "@/assets/hero-xray.png";
