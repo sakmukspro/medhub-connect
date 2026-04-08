@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Shield, Award, CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import { Shield, Award, CheckCircle, ChevronLeft, ChevronRight, Phone } from "lucide-react";
 import heroWheelchair from "@/assets/hero-wheelchair.png";
 import heroWalker from "@/assets/hero-walker.png";
 import heroXray from "@/assets/hero-xray.png";
@@ -115,8 +115,22 @@ const HeroSlider = () => {
               </div>
             </div>
 
-            {/* RIGHT - empty for clean look */}
-            <div className="hidden lg:block relative h-[500px]" />
+            {/* RIGHT - Contact */}
+            <div className="hidden lg:flex relative h-[500px] items-center justify-center">
+              <a
+                href="tel:+917305062227"
+                className="group flex items-center gap-4 bg-background/10 backdrop-blur-md border border-white/15 rounded-2xl px-8 py-6 hover:bg-background/20 transition-all duration-500 animate-fade-in"
+                style={{ animation: "heroFloat 3s ease-in-out infinite" }}
+              >
+                <div className="w-14 h-14 rounded-full gradient-bg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Phone className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-wider" style={{ color: "hsla(0,0%,100%,0.6)" }}>Call Us Now</p>
+                  <p className="text-xl font-bold font-heading" style={{ color: "white" }}>+91-7305062227</p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
