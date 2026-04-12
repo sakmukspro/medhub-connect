@@ -82,7 +82,7 @@ const HeroSlider = () => {
       ))}
 
       {/* Overlay */}
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to right, hsla(220, 20%, 8%, 0.85) 0%, hsla(220, 20%, 8%, 0.6) 50%, hsla(220,20%,8%,0.3) 100%)" }} />
+      <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsla(310, 60%, 42%, 0.75) 0%, hsla(30, 90%, 55%, 0.5) 50%, hsla(310, 60%, 42%, 0.4) 100%)" }} />
 
       {/* Content */}
       <div className="absolute inset-0 flex items-center">
