@@ -2,13 +2,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Shield, Award, CheckCircle, ChevronLeft, ChevronRight, Phone } from "lucide-react";
-import heroWheelchair from "@/assets/hero-wheelchair.png";
-import heroWalker from "@/assets/hero-walker.png";
-import heroXray from "@/assets/hero-xray.png";
-import heroMonitor from "@/assets/hero-monitor.png";
-import heroCtScan from "@/assets/hero-ct-scan.jpg";
-import heroIcu from "@/assets/hero-icu.jpg";
-import heroMobility from "@/assets/hero-mobility.jpg";
+import heroInjector from "@/assets/hero-injector.jpg";
+import heroFixedXray from "@/assets/hero-fixed-xray.jpg";
+import heroMobileXray from "@/assets/hero-mobile-xray.jpg";
+import heroCArm from "@/assets/hero-c-arm.jpg";
 
 const slides = [
   {
