@@ -2,43 +2,40 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Shield, Award, CheckCircle, ChevronLeft, ChevronRight, Phone } from "lucide-react";
-import heroWheelchair from "@/assets/hero-wheelchair.png";
-import heroWalker from "@/assets/hero-walker.png";
-import heroXray from "@/assets/hero-xray.png";
-import heroMonitor from "@/assets/hero-monitor.png";
-import heroCtScan from "@/assets/hero-ct-scan.jpg";
-import heroIcu from "@/assets/hero-icu.jpg";
-import heroMobility from "@/assets/hero-mobility.jpg";
+import heroInjector from "@/assets/hero-injector.jpg";
+import heroFixedXray from "@/assets/hero-fixed-xray.jpg";
+import heroMobileXray from "@/assets/hero-mobile-xray.jpg";
+import heroCArm from "@/assets/hero-c-arm.jpg";
 
 const slides = [
   {
-    bg: heroCtScan,
-    heading: "Advanced Medical Imaging Solutions",
-    tagline: "State-of-the-art CT, MRI & X-Ray equipment for modern healthcare facilities",
+    bg: heroInjector,
+    heading: "Advanced Contrast Media Injectors",
+    tagline: "Zenith CT injectors for enhanced imaging of CT scan, MRI and DSA angiography systems",
     cta: "View Products",
     link: "/products",
   },
   {
-    bg: heroIcu,
-    heading: "Reliable Hospital Equipment Supplier",
-    tagline: "Complete ICU setup and patient monitoring solutions trusted by 500+ hospitals",
+    bg: heroFixedXray,
+    heading: "Digital Fixed X-Ray Systems",
+    tagline: "High-resolution digital X-ray systems for radiology departments and diagnostic centers",
     cta: "Explore Solutions",
     link: "/solutions",
   },
   {
-    bg: heroMobility,
-    heading: "Mobility & Patient Care Devices",
-    tagline: "Wheelchairs, walkers and rehabilitation equipment for enhanced patient comfort",
+    bg: heroMobileXray,
+    heading: "Portable Mobile X-Ray Units",
+    tagline: "Bedside and emergency imaging with portable digital X-ray systems",
     cta: "Browse Products",
     link: "/products",
   },
-];
-
-const floatingProducts = [
-  { img: heroWheelchair, alt: "Wheelchair", className: "top-[15%] right-[5%] w-28 md:w-40", delay: "0s", duration: "4s" },
-  { img: heroWalker, alt: "Walker", className: "bottom-[20%] right-[15%] w-24 md:w-32", delay: "1s", duration: "3.5s" },
-  { img: heroXray, alt: "X-Ray Machine", className: "top-[35%] right-[25%] w-24 md:w-36", delay: "0.5s", duration: "4.5s" },
-  { img: heroMonitor, alt: "Patient Monitor", className: "bottom-[10%] right-[2%] w-20 md:w-28", delay: "1.5s", duration: "3s" },
+  {
+    bg: heroCArm,
+    heading: "Surgical C-Arm Systems",
+    tagline: "High-performance C-Arm with flat panel detector for surgical and orthopedic imaging",
+    cta: "View Details",
+    link: "/products",
+  },
 ];
 
 const trustBadges = [
