@@ -6,10 +6,10 @@ import heroInjector from "@/assets/hero-injector.jpg";
 import heroFixedXray from "@/assets/hero-fixed-xray.jpg";
 import heroMobileXray from "@/assets/hero-mobile-xray.jpg";
 import heroCArm from "@/assets/hero-c-arm.jpg";
-import productInjector from "@/assets/product-injector-single.png";
-import productFixedXray from "@/assets/product-fixed-xray.png";
-import productMobileXray from "@/assets/product-mobile-xray.png";
-import productCArm from "@/assets/product-c-arm.png";
+import productInjector from "@/assets/product-injector-single.jpg";
+import productFixedXray from "@/assets/product-fixed-xray.jpg";
+import productMobileXray from "@/assets/product-mobile-xray.jpg";
+import productCArm from "@/assets/product-c-arm.jpg";
 
 const slides = [
   {
