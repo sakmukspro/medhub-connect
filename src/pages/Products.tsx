@@ -24,8 +24,6 @@ const products = [
 const Products = () => (
   <Layout>
     <PageHero title="Our Products" subtitle="Make in India medical diagnostic devices of world-class quality" icon1={Package} icon2={Cpu} />
-      </div>
-    </section>
 
     <section className="section-padding">
       <div className="container">
