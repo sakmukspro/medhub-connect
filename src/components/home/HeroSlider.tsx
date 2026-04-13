@@ -1,49 +1,37 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Shield, Award, CheckCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import { Shield, Award, CheckCircle, ChevronLeft, ChevronRight, Phone } from "lucide-react";
 import heroInjector from "@/assets/hero-injector.jpg";
 import heroFixedXray from "@/assets/hero-fixed-xray.jpg";
 import heroMobileXray from "@/assets/hero-mobile-xray.jpg";
 import heroCArm from "@/assets/hero-c-arm.jpg";
-import productInjector from "@/assets/product-injector-single.jpg";
-import productFixedXray from "@/assets/product-fixed-xray.jpg";
-import productMobileXray from "@/assets/product-mobile-xray.jpg";
-import productCArm from "@/assets/product-c-arm.jpg";
 
 const slides = [
   {
     bg: heroInjector,
-    product: productInjector,
-    heading: "Advanced Contrast",
-    headingLine2: "Media Injectors",
+    heading: "Advanced Contrast Media Injectors",
     tagline: "Zenith CT injectors for enhanced imaging of CT scan, MRI and DSA angiography systems",
     cta: "View Products",
     link: "/products",
   },
   {
     bg: heroFixedXray,
-    product: productFixedXray,
-    heading: "Digital Fixed",
-    headingLine2: "X-Ray Systems",
+    heading: "Digital Fixed X-Ray Systems",
     tagline: "High-resolution digital X-ray systems for radiology departments and diagnostic centers",
     cta: "Explore Solutions",
     link: "/solutions",
   },
   {
     bg: heroMobileXray,
-    product: productMobileXray,
-    heading: "Portable Mobile",
-    headingLine2: "X-Ray Units",
+    heading: "Portable Mobile X-Ray Units",
     tagline: "Bedside and emergency imaging with portable digital X-ray systems",
     cta: "Browse Products",
     link: "/products",
   },
   {
     bg: heroCArm,
-    product: productCArm,
-    heading: "Surgical C-Arm",
-    headingLine2: "Systems",
+    heading: "Surgical C-Arm Systems",
     tagline: "High-performance C-Arm with flat panel detector for surgical and orthopedic imaging",
     cta: "View Details",
     link: "/products",
@@ -83,25 +71,18 @@ const HeroSlider = () => {
 
   return (
     <section className="relative h-[550px] md:h-[650px] lg:h-[720px] overflow-hidden">
-      {/* Light gray gradient background with brightness */}
-      <div className="absolute inset-0" style={{
-        background: "linear-gradient(135deg, hsl(220, 15%, 96%) 0%, hsl(220, 10%, 98%) 30%, hsl(0, 0%, 97%) 60%, hsl(220, 12%, 95%) 100%)"
-      }} />
+      {/* Background images */}
+      {slides.map((s, i) => (
+        <div
+          key={i}
+          className={`absolute inset-0 transition-opacity duration-1000 ${i === current ? "opacity-100" : "opacity-0"}`}
+        >
+          <img src={s.bg} alt="" className="w-full h-full object-cover" />
+        </div>
+      ))}
 
-      {/* Flowing wave SVG decoration */}
-      <svg className="absolute bottom-0 left-0 w-full h-[60%] opacity-25" viewBox="0 0 1440 400" preserveAspectRatio="none">
-        <path d="M0,200 C200,100 400,300 600,200 C800,100 1000,280 1200,180 C1300,140 1400,200 1440,200 L1440,400 L0,400 Z" fill="hsla(310, 40%, 80%, 0.15)" />
-        <path d="M0,260 C180,180 380,320 580,240 C780,160 980,300 1180,220 C1320,170 1440,260 1440,260 L1440,400 L0,400 Z" fill="hsla(30, 60%, 85%, 0.12)" />
-        <path d="M0,300 C240,240 440,340 640,280 C840,220 1040,320 1240,260 C1360,230 1440,300 1440,300 L1440,400 L0,400 Z" fill="hsla(220, 20%, 85%, 0.1)" />
-      </svg>
-
-      {/* Soft circle glow accents */}
-      <div className="absolute top-10 right-[20%] w-[400px] h-[400px] rounded-full opacity-10" style={{
-        background: "radial-gradient(circle, hsla(310, 40%, 80%, 0.3) 0%, transparent 70%)"
-      }} />
-      <div className="absolute bottom-10 left-[10%] w-[300px] h-[300px] rounded-full opacity-10" style={{
-        background: "radial-gradient(circle, hsla(30, 60%, 80%, 0.3) 0%, transparent 70%)"
-      }} />
+      {/* Overlay */}
+      <div className="absolute inset-0" style={{ background: "linear-gradient(to right, hsla(220, 20%, 8%, 0.85) 0%, hsla(220, 20%, 8%, 0.6) 50%, hsla(220,20%,8%,0.3) 100%)" }} />
 
       {/* Content */}
       <div className="absolute inset-0 flex items-center">
@@ -109,64 +90,60 @@ const HeroSlider = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* LEFT - Text */}
             <div className={`transition-all duration-700 ${textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading leading-tight mb-4">
-                <span className="text-foreground">{slide.heading}</span>
-                <br />
-                <span className="gradient-text">{slide.headingLine2}</span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-heading leading-tight mb-4" style={{ color: "white" }}>
+                <span className="gradient-text">{slide.heading.split(" ").slice(0, 2).join(" ")}</span>{" "}
+                <span style={{ color: "white" }}>{slide.heading.split(" ").slice(2).join(" ")}</span>
               </h1>
-              <p className="text-base md:text-lg mb-8 max-w-lg text-muted-foreground">
+              <p className="text-base md:text-lg mb-8 max-w-lg" style={{ color: "hsla(0,0%,100%,0.8)" }}>
                 {slide.tagline}
               </p>
-              <Button asChild size="lg" className="gradient-bg text-primary-foreground font-heading font-semibold px-8 border-0 hover:opacity-90 mb-8 shadow-lg">
+              <Button asChild size="lg" className="gradient-bg text-primary-foreground font-heading font-semibold px-8 border-0 hover:opacity-90 mb-8">
                 <Link to={slide.link}>{slide.cta}</Link>
               </Button>
 
               {/* Trust badges */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-4">
                 {trustBadges.map((badge) => (
-                  <div key={badge.label} className="flex items-center gap-2 bg-background/60 backdrop-blur-sm rounded-full px-4 py-2 border border-primary/10 shadow-sm">
-                    <badge.icon className="w-4 h-4 text-secondary" />
-                    <span className="text-xs font-medium text-foreground/80">{badge.label}</span>
+                  <div key={badge.label} className="flex items-center gap-2 bg-background/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
+                    <badge.icon className="w-4 h-4" style={{ color: "hsl(30, 90%, 55%)" }} />
+                    <span className="text-xs font-medium" style={{ color: "hsla(0,0%,100%,0.9)" }}>{badge.label}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* RIGHT - Product Image */}
+            {/* RIGHT - Contact */}
             <div className="hidden lg:flex relative h-[500px] items-center justify-center">
-              {slides.map((s, i) => (
-                <div
-                  key={i}
-                  className={`absolute inset-0 flex items-center justify-center transition-all duration-700 ${i === current ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}
-                >
-                  <img
-                    src={s.product}
-                    alt={s.heading + " " + s.headingLine2}
-                    className="max-h-[460px] max-w-full object-contain drop-shadow-2xl"
-                    style={{
-                      filter: "drop-shadow(0 20px 40px hsla(310, 60%, 42%, 0.15))",
-                      animation: i === current ? "heroFloat 3s ease-in-out infinite" : "none"
-                    }}
-                  />
+              <a
+                href="tel:+917305062227"
+                className="group flex items-center gap-4 bg-background/10 backdrop-blur-md border border-white/15 rounded-2xl px-8 py-6 hover:bg-background/20 transition-all duration-500 animate-fade-in"
+                style={{ animation: "heroFloat 3s ease-in-out infinite" }}
+              >
+                <div className="w-14 h-14 rounded-full gradient-bg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Phone className="w-6 h-6 text-primary-foreground" />
                 </div>
-              ))}
+                <div>
+                  <p className="text-xs font-medium uppercase tracking-wider" style={{ color: "hsla(0,0%,100%,0.6)" }}>Call Us Now</p>
+                  <p className="text-xl font-bold font-heading" style={{ color: "white" }}>+91-7305062227</p>
+                </div>
+              </a>
             </div>
           </div>
         </div>
       </div>
 
       {/* Nav arrows */}
-      <button onClick={() => go(-1)} className="absolute left-4 top-1/2 -translate-y-1/2 bg-primary/10 hover:bg-primary/20 backdrop-blur-sm rounded-full p-2 transition-colors text-primary" aria-label="Previous">
+      <button onClick={() => go(-1)} className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/20 hover:bg-background/40 backdrop-blur-sm rounded-full p-2 transition-colors" style={{ color: "white" }} aria-label="Previous">
         <ChevronLeft className="w-6 h-6" />
       </button>
-      <button onClick={() => go(1)} className="absolute right-4 top-1/2 -translate-y-1/2 bg-primary/10 hover:bg-primary/20 backdrop-blur-sm rounded-full p-2 transition-colors text-primary" aria-label="Next">
+      <button onClick={() => go(1)} className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/20 hover:bg-background/40 backdrop-blur-sm rounded-full p-2 transition-colors" style={{ color: "white" }} aria-label="Next">
         <ChevronRight className="w-6 h-6" />
       </button>
 
       {/* Dots */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
         {slides.map((_, i) => (
-          <button key={i} onClick={() => { setTextVisible(false); setTimeout(() => { setCurrent(i); setTextVisible(true); }, 400); }} className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-8 bg-primary" : "w-3 bg-primary/30"}`} aria-label={`Slide ${i + 1}`} />
+          <button key={i} onClick={() => { setTextVisible(false); setTimeout(() => { setCurrent(i); setTextVisible(true); }, 400); }} className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-8 bg-secondary" : "w-3 bg-white/40"}`} aria-label={`Slide ${i + 1}`} />
         ))}
       </div>
     </section>
