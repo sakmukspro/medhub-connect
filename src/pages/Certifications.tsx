@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import PageHero from "@/components/layout/PageHero";
 import { ShieldCheck, Award, FileCheck, BadgeCheck } from "lucide-react";
+import aboutCertifications from "@/assets/about-certifications.jpg";
 
 const certs = [
   { icon: ShieldCheck, title: "ISO 9001:2015", desc: "Quality Management System certification ensuring consistent quality in products and services. This internationally recognized standard demonstrates our commitment to meeting customer requirements and continual improvement." },

@@ -1,6 +1,7 @@
 import Layout from "@/components/layout/Layout";
 import PageHero from "@/components/layout/PageHero";
 import { Heart, Users } from "lucide-react";
+import aboutClients from "@/assets/about-clients.jpg";
 
 const clientCategories = [
   {
