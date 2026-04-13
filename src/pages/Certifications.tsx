@@ -14,7 +14,6 @@ const certs = [
 const Certifications = () => (
   <Layout>
     <PageHero title="Certifications" subtitle="Our commitment to quality and regulatory compliance" icon1={Award} icon2={BadgeCheck} />
-    </section>
 
     <section className="section-padding">
       <div className="container grid lg:grid-cols-2 gap-12 items-center">
