@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
-import { ShieldCheck, Search, Settings, CheckCircle, FileCheck, Users } from "lucide-react";
+import PageHero from "@/components/layout/PageHero";
+import { ShieldCheck, Search, Settings, CheckCircle, FileCheck, Users, ScanSearch } from "lucide-react";
 import aboutQuality from "@/assets/about-quality.jpg";
 
 const steps = [
@@ -13,14 +14,7 @@ const steps = [
 
 const QualityProcess = () => (
   <Layout>
-    <section className="gradient-bg py-20">
-      <div className="container text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-primary-foreground mb-4">Quality Process</h1>
-        <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-          Our commitment to delivering world-class medical equipment
-        </p>
-      </div>
-    </section>
+    <PageHero title="Quality Process" subtitle="Our commitment to delivering world-class medical equipment" icon1={ShieldCheck} icon2={ScanSearch} />
 
     <section className="section-padding">
       <div className="container grid lg:grid-cols-2 gap-12 items-center">

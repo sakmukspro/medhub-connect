@@ -51,16 +51,7 @@ const categoryColors = [
 
 const FAQ = () => (
   <Layout>
-    <section className="gradient-bg py-20">
-      <div className="container text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-primary-foreground mb-4">
-          Frequently Asked Questions
-        </h1>
-        <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-          Find answers to common questions about our products, services, and partnership opportunities
-        </p>
-      </div>
-    </section>
+    <PageHero title="Frequently Asked Questions" subtitle="Find answers to common questions about our products, services, and partnership opportunities" icon1={HelpCircle} icon2={CircleHelp} />
 
     <section className="section-padding">
       <div className="container max-w-4xl">
