@@ -83,7 +83,7 @@ const HeroSlider = () => {
 
       {/* Gradient overlays for premium blend */}
       <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsla(220, 20%, 6%, 0.92) 0%, hsla(310, 30%, 10%, 0.8) 40%, hsla(220, 20%, 8%, 0.85) 100%)" }} />
-      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 70% 50%, hsla(310, 60%, 42%, 0.08) 0%, transparent 60%)" }} />
+      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 70% 50%, hsla(310, 60%, 42%, 0.12) 0%, hsla(30, 90%, 55%, 0.06) 40%, transparent 65%)" }} />
       <div className="absolute bottom-0 left-0 right-0 h-32" style={{ background: "linear-gradient(to top, hsl(var(--background)) 0%, transparent 100%)" }} />
 
       {/* Content */}
@@ -118,12 +118,12 @@ const HeroSlider = () => {
             <div className={`hidden lg:flex relative h-[500px] flex-col items-center justify-center gap-6 transition-all duration-700 ${textVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
               {/* Product image with soft glow */}
               <div className="relative">
-                <div className="absolute inset-0 rounded-3xl" style={{ background: "radial-gradient(circle, hsla(310, 60%, 42%, 0.15) 0%, transparent 70%)", filter: "blur(30px)", transform: "scale(1.3)" }} />
+                <div className="absolute inset-0 rounded-3xl" style={{ background: "radial-gradient(circle, hsla(310, 60%, 42%, 0.25) 0%, hsla(30, 90%, 55%, 0.1) 50%, transparent 70%)", filter: "blur(40px)", transform: "scale(1.5)" }} />
                 <img
                   src={slide.bg}
                   alt={slide.heading}
-                  className="relative w-[340px] h-[260px] object-contain drop-shadow-2xl"
-                  style={{ filter: "drop-shadow(0 20px 40px hsla(220, 20%, 5%, 0.5))" }}
+                  className="relative w-[420px] h-[340px] object-contain drop-shadow-2xl"
+                  style={{ filter: "drop-shadow(0 25px 50px hsla(310, 60%, 42%, 0.3)) drop-shadow(0 10px 20px hsla(30, 90%, 55%, 0.2))" }}
                 />
               </div>
 
