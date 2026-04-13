@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
-import { ShieldCheck, Award, FileCheck } from "lucide-react";
+import PageHero from "@/components/layout/PageHero";
+import { ShieldCheck, Award, FileCheck, BadgeCheck } from "lucide-react";
 import aboutCertifications from "@/assets/about-certifications.jpg";
 
 const certs = [
@@ -13,12 +14,7 @@ const certs = [
 
 const Certifications = () => (
   <Layout>
-    <section className="gradient-bg py-20">
-      <div className="container text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-primary-foreground mb-4">Certifications</h1>
-        <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">Our commitment to quality and regulatory compliance</p>
-      </div>
-    </section>
+    <PageHero title="Certifications" subtitle="Our commitment to quality and regulatory compliance" icon1={Award} icon2={BadgeCheck} />
 
     <section className="section-padding">
       <div className="container grid lg:grid-cols-2 gap-12 items-center">

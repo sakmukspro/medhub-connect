@@ -1,20 +1,13 @@
 import Layout from "@/components/layout/Layout";
+import PageHero from "@/components/layout/PageHero";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, MapPin, Clock, Globe, MessageCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Globe, MessageCircle, Send } from "lucide-react";
 
 const Contact = () => (
   <Layout>
-    {/* Hero */}
-    <section className="gradient-bg py-20">
-      <div className="container text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-primary-foreground mb-4">Contact Us</h1>
-        <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-          We'd love to hear from you. Reach out to us through any of the channels below.
-        </p>
-      </div>
-    </section>
+    <PageHero title="Contact Us" subtitle="We'd love to hear from you. Reach out to us through any of the channels below." icon1={Send} icon2={Phone} />
 
     {/* Contact Cards */}
     <section className="section-padding -mt-10">

@@ -1,4 +1,5 @@
 import Layout from "@/components/layout/Layout";
+import PageHero from "@/components/layout/PageHero";
 import { Handshake, TrendingUp, Shield, Award, MapPin, Users, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -26,16 +27,7 @@ const steps = [
 
 const Partner = () => (
   <Layout>
-    <section className="gradient-bg py-20">
-      <div className="container text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-primary-foreground mb-4">
-          Become a Partner / Distributor
-        </h1>
-        <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-          Join RadPing's growing network and bring world-class medical equipment to your region
-        </p>
-      </div>
-    </section>
+    <PageHero title="Become a Partner / Distributor" subtitle="Join RadPing's growing network and bring world-class medical equipment to your region" icon1={Handshake} icon2={TrendingUp} />
 
     {/* Overview */}
     <section className="section-padding">

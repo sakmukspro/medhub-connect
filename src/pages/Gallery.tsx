@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Layout from "@/components/layout/Layout";
-import { X, ZoomIn } from "lucide-react";
+import PageHero from "@/components/layout/PageHero";
+import { X, ZoomIn, Camera, Images } from "lucide-react";
 
 // Import all product/gallery images
 import injectorSingle from "@/assets/injector-single.jpg";
@@ -72,15 +73,7 @@ const Gallery = () => {
 
   return (
     <Layout>
-      {/* Hero */}
-      <section className="gradient-bg py-20">
-        <div className="container text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-primary-foreground mb-4">Product Gallery</h1>
-          <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-            Explore our range of medical equipment through detailed product images
-          </p>
-        </div>
-      </section>
+      <PageHero title="Product Gallery" subtitle="Explore our range of medical equipment through detailed product images" icon1={Camera} icon2={Images} />
 
       <section className="section-padding">
         <div className="container">

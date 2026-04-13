@@ -1,4 +1,6 @@
 import Layout from "@/components/layout/Layout";
+import PageHero from "@/components/layout/PageHero";
+import { Wrench, Headphones } from "lucide-react";
 import serviceInstallation from "@/assets/service-installation.jpg";
 import serviceMaintenance from "@/assets/service-maintenance.jpg";
 import serviceWarranty from "@/assets/service-warranty.jpg";
@@ -15,12 +17,7 @@ const services = [
 
 const Services = () => (
   <Layout>
-    <section className="gradient-bg py-20">
-      <div className="container text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-primary-foreground mb-4">Services & Support</h1>
-        <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">End-to-end service support for all your medical equipment needs</p>
-      </div>
-    </section>
+    <PageHero title="Services & Support" subtitle="End-to-end service support for all your medical equipment needs" icon1={Wrench} icon2={Headphones} />
 
     <section className="section-padding">
       <div className="container grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

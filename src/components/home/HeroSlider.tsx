@@ -122,7 +122,7 @@ const HeroSlider = () => {
                 <img
                   src={slide.bg}
                   alt={slide.heading}
-                  className="relative w-[420px] h-[340px] object-contain drop-shadow-2xl"
+                  className="relative w-[520px] h-[440px] object-contain drop-shadow-2xl"
                   style={{ filter: "drop-shadow(0 25px 50px hsla(310, 60%, 42%, 0.3)) drop-shadow(0 10px 20px hsla(30, 90%, 55%, 0.2))" }}
                 />
               </div>

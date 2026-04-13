@@ -1,8 +1,9 @@
 import Layout from "@/components/layout/Layout";
+import PageHero from "@/components/layout/PageHero";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Users, TrendingUp, Heart, Briefcase } from "lucide-react";
+import { Users, TrendingUp, Heart, Briefcase, Rocket } from "lucide-react";
 
 const benefits = [
   { icon: TrendingUp, title: "Growth Opportunities", desc: "Continuous learning and career advancement" },
@@ -20,12 +21,7 @@ const openings = [
 
 const Careers = () => (
   <Layout>
-    <section className="gradient-bg py-20">
-      <div className="container text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-primary-foreground mb-4">Careers</h1>
-        <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">Join our team and help shape the future of healthcare</p>
-      </div>
-    </section>
+    <PageHero title="Careers" subtitle="Join our team and help shape the future of healthcare" icon1={Rocket} icon2={Briefcase} />
 
     {/* Benefits */}
     <section className="section-padding">

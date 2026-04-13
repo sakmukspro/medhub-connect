@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
-import { Factory, Hospital, Microscope, Building, Stethoscope, Pill } from "lucide-react";
+import PageHero from "@/components/layout/PageHero";
+import { Factory, Hospital, Microscope, Building, Stethoscope, Pill, Globe } from "lucide-react";
 
 const industries = [
   { icon: Hospital, title: "Hospitals", desc: "Multi-specialty and super-specialty hospitals across India" },
@@ -12,12 +13,7 @@ const industries = [
 
 const Industries = () => (
   <Layout>
-    <section className="gradient-bg py-20">
-      <div className="container text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-primary-foreground mb-4">Industries Served</h1>
-        <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">Serving diverse healthcare facilities across India</p>
-      </div>
-    </section>
+    <PageHero title="Industries Served" subtitle="Serving diverse healthcare facilities across India" icon1={Hospital} icon2={Globe} />
 
     <section className="section-padding">
       <div className="container grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

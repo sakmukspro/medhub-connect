@@ -1,7 +1,8 @@
 import Layout from "@/components/layout/Layout";
+import PageHero from "@/components/layout/PageHero";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Target, Eye, Heart, ShieldCheck, Clock, Award } from "lucide-react";
+import { Target, Eye, Heart, ShieldCheck, Clock, Award, Building2, Users } from "lucide-react";
 import aboutTeam from "@/assets/about-team.jpg";
 import aboutMission from "@/assets/about-mission.jpg";
 import aboutVision from "@/assets/about-vision.jpg";
@@ -25,15 +26,7 @@ const timeline = [
 
 const About = () => (
   <Layout>
-    {/* Hero */}
-    <section className="gradient-bg py-20">
-      <div className="container text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-primary-foreground mb-4">About RadPing</h1>
-        <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-          Over 20 years of excellence in hospital equipment solutions
-        </p>
-      </div>
-    </section>
+    <PageHero title="About RadPing" subtitle="Over 20 years of excellence in hospital equipment solutions" icon1={Building2} icon2={Users} />
 
     {/* Overview */}
     <section className="section-padding">

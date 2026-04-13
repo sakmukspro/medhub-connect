@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
-import { ArrowRight, ThumbsUp, Share2 } from "lucide-react";
+import PageHero from "@/components/layout/PageHero";
+import { ArrowRight, ThumbsUp, Share2, Newspaper, PenLine } from "lucide-react";
 import { Link } from "react-router-dom";
 import blogFutureImaging from "@/assets/blog-future-imaging.jpg";
 import blogDetail1 from "@/assets/blog-future-imaging-detail1.jpg";
@@ -7,12 +8,7 @@ import blogDetail2 from "@/assets/blog-future-imaging-detail2.jpg";
 
 const Blog = () => (
   <Layout>
-    <section className="gradient-bg py-20">
-      <div className="container text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-primary-foreground mb-4">Blog & News</h1>
-        <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">Latest insights on medical equipment and healthcare technology</p>
-      </div>
-    </section>
+    <PageHero title="Blog & News" subtitle="Latest insights on medical equipment and healthcare technology" icon1={Newspaper} icon2={PenLine} />
 
     <section className="section-padding">
       <div className="container max-w-4xl">

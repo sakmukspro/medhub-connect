@@ -1,4 +1,6 @@
 import Layout from "@/components/layout/Layout";
+import PageHero from "@/components/layout/PageHero";
+import { Heart, Users } from "lucide-react";
 import aboutClients from "@/assets/about-clients.jpg";
 
 const clientCategories = [
@@ -22,14 +24,7 @@ const clientCategories = [
 
 const OurClients = () => (
   <Layout>
-    <section className="gradient-bg py-20">
-      <div className="container text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-primary-foreground mb-4">Our Clients</h1>
-        <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-          Trusted by 500+ healthcare facilities across India
-        </p>
-      </div>
-    </section>
+    <PageHero title="Our Clients" subtitle="Trusted by 500+ healthcare facilities across India" icon1={Heart} icon2={Users} />
 
     <section className="section-padding">
       <div className="container grid lg:grid-cols-2 gap-12 items-center">
