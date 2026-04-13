@@ -83,24 +83,24 @@ const HeroSlider = () => {
 
   return (
     <section className="relative h-[550px] md:h-[650px] lg:h-[720px] overflow-hidden">
-      {/* Soft pink/rose gradient background */}
+      {/* Light gray gradient background with brightness */}
       <div className="absolute inset-0" style={{
-        background: "linear-gradient(135deg, hsl(340, 80%, 95%) 0%, hsl(20, 90%, 95%) 30%, hsl(330, 60%, 92%) 60%, hsl(340, 70%, 94%) 100%)"
+        background: "linear-gradient(135deg, hsl(220, 15%, 96%) 0%, hsl(220, 10%, 98%) 30%, hsl(0, 0%, 97%) 60%, hsl(220, 12%, 95%) 100%)"
       }} />
 
       {/* Flowing wave SVG decoration */}
-      <svg className="absolute bottom-0 left-0 w-full h-[60%] opacity-40" viewBox="0 0 1440 400" preserveAspectRatio="none">
-        <path d="M0,200 C200,100 400,300 600,200 C800,100 1000,280 1200,180 C1300,140 1400,200 1440,200 L1440,400 L0,400 Z" fill="hsla(310, 60%, 70%, 0.25)" />
-        <path d="M0,260 C180,180 380,320 580,240 C780,160 980,300 1180,220 C1320,170 1440,260 1440,260 L1440,400 L0,400 Z" fill="hsla(30, 90%, 75%, 0.2)" />
-        <path d="M0,300 C240,240 440,340 640,280 C840,220 1040,320 1240,260 C1360,230 1440,300 1440,300 L1440,400 L0,400 Z" fill="hsla(310, 50%, 80%, 0.15)" />
+      <svg className="absolute bottom-0 left-0 w-full h-[60%] opacity-25" viewBox="0 0 1440 400" preserveAspectRatio="none">
+        <path d="M0,200 C200,100 400,300 600,200 C800,100 1000,280 1200,180 C1300,140 1400,200 1440,200 L1440,400 L0,400 Z" fill="hsla(310, 40%, 80%, 0.15)" />
+        <path d="M0,260 C180,180 380,320 580,240 C780,160 980,300 1180,220 C1320,170 1440,260 1440,260 L1440,400 L0,400 Z" fill="hsla(30, 60%, 85%, 0.12)" />
+        <path d="M0,300 C240,240 440,340 640,280 C840,220 1040,320 1240,260 C1360,230 1440,300 1440,300 L1440,400 L0,400 Z" fill="hsla(220, 20%, 85%, 0.1)" />
       </svg>
 
       {/* Soft circle glow accents */}
-      <div className="absolute top-10 right-[20%] w-[400px] h-[400px] rounded-full opacity-20" style={{
-        background: "radial-gradient(circle, hsla(310, 60%, 70%, 0.4) 0%, transparent 70%)"
+      <div className="absolute top-10 right-[20%] w-[400px] h-[400px] rounded-full opacity-10" style={{
+        background: "radial-gradient(circle, hsla(310, 40%, 80%, 0.3) 0%, transparent 70%)"
       }} />
-      <div className="absolute bottom-10 left-[10%] w-[300px] h-[300px] rounded-full opacity-15" style={{
-        background: "radial-gradient(circle, hsla(30, 90%, 70%, 0.4) 0%, transparent 70%)"
+      <div className="absolute bottom-10 left-[10%] w-[300px] h-[300px] rounded-full opacity-10" style={{
+        background: "radial-gradient(circle, hsla(30, 60%, 80%, 0.3) 0%, transparent 70%)"
       }} />
 
       {/* Content */}
