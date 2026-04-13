@@ -70,19 +70,21 @@ const HeroSlider = () => {
   const slide = slides[current];
 
   return (
-    <section className="relative h-[550px] md:h-[650px] lg:h-[720px] overflow-hidden">
-      {/* Background images */}
+    <section className="relative h-[550px] md:h-[650px] lg:h-[720px] overflow-hidden bg-foreground">
+      {/* Background images with soft blur & low opacity */}
       {slides.map((s, i) => (
         <div
           key={i}
-          className={`absolute inset-0 transition-opacity duration-1000 ${i === current ? "opacity-100" : "opacity-0"}`}
+          className={`absolute inset-0 transition-opacity duration-1000 ${i === current ? "opacity-40" : "opacity-0"}`}
         >
-          <img src={s.bg} alt="" className="w-full h-full object-cover" />
+          <img src={s.bg} alt="" className="w-full h-full object-cover scale-105 blur-[2px]" />
         </div>
       ))}
 
-      {/* Overlay */}
-      <div className="absolute inset-0" style={{ background: "linear-gradient(to right, hsla(220, 20%, 8%, 0.85) 0%, hsla(220, 20%, 8%, 0.6) 50%, hsla(220,20%,8%,0.3) 100%)" }} />
+      {/* Gradient overlays for premium blend */}
+      <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsla(220, 20%, 6%, 0.92) 0%, hsla(310, 30%, 10%, 0.8) 40%, hsla(220, 20%, 8%, 0.85) 100%)" }} />
+      <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 70% 50%, hsla(310, 60%, 42%, 0.08) 0%, transparent 60%)" }} />
+      <div className="absolute bottom-0 left-0 right-0 h-32" style={{ background: "linear-gradient(to top, hsl(var(--background)) 0%, transparent 100%)" }} />
 
       {/* Content */}
       <div className="absolute inset-0 flex items-center">
@@ -94,37 +96,49 @@ const HeroSlider = () => {
                 <span className="gradient-text">{slide.heading.split(" ").slice(0, 2).join(" ")}</span>{" "}
                 <span style={{ color: "white" }}>{slide.heading.split(" ").slice(2).join(" ")}</span>
               </h1>
-              <p className="text-base md:text-lg mb-8 max-w-lg" style={{ color: "hsla(0,0%,100%,0.8)" }}>
+              <p className="text-base md:text-lg mb-8 max-w-lg" style={{ color: "hsla(0,0%,100%,0.75)" }}>
                 {slide.tagline}
               </p>
-              <Button asChild size="lg" className="gradient-bg text-primary-foreground font-heading font-semibold px-8 border-0 hover:opacity-90 mb-8">
+              <Button asChild size="lg" className="gradient-bg text-primary-foreground font-heading font-semibold px-8 border-0 hover:opacity-90 mb-8 shadow-lg shadow-primary/20">
                 <Link to={slide.link}>{slide.cta}</Link>
               </Button>
 
               {/* Trust badges */}
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-3">
                 {trustBadges.map((badge) => (
-                  <div key={badge.label} className="flex items-center gap-2 bg-background/10 backdrop-blur-sm rounded-full px-4 py-2 border border-white/10">
-                    <badge.icon className="w-4 h-4" style={{ color: "hsl(30, 90%, 55%)" }} />
-                    <span className="text-xs font-medium" style={{ color: "hsla(0,0%,100%,0.9)" }}>{badge.label}</span>
+                  <div key={badge.label} className="flex items-center gap-2 bg-white/5 backdrop-blur-md rounded-full px-4 py-2 border border-white/10 shadow-sm">
+                    <badge.icon className="w-4 h-4 text-secondary" />
+                    <span className="text-xs font-medium" style={{ color: "hsla(0,0%,100%,0.85)" }}>{badge.label}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* RIGHT - Contact */}
-            <div className="hidden lg:flex relative h-[500px] items-center justify-center">
+            {/* RIGHT - Product visual + Contact */}
+            <div className={`hidden lg:flex relative h-[500px] flex-col items-center justify-center gap-6 transition-all duration-700 ${textVisible ? "opacity-100 scale-100" : "opacity-0 scale-95"}`}>
+              {/* Product image with soft glow */}
+              <div className="relative">
+                <div className="absolute inset-0 rounded-3xl" style={{ background: "radial-gradient(circle, hsla(310, 60%, 42%, 0.15) 0%, transparent 70%)", filter: "blur(30px)", transform: "scale(1.3)" }} />
+                <img
+                  src={slide.bg}
+                  alt={slide.heading}
+                  className="relative w-[340px] h-[260px] object-contain drop-shadow-2xl"
+                  style={{ filter: "drop-shadow(0 20px 40px hsla(220, 20%, 5%, 0.5))" }}
+                />
+              </div>
+
+              {/* Contact card */}
               <a
                 href="tel:+917305062227"
-                className="group flex items-center gap-4 bg-background/10 backdrop-blur-md border border-white/15 rounded-2xl px-8 py-6 hover:bg-background/20 transition-all duration-500 animate-fade-in"
+                className="group relative flex items-center gap-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl px-7 py-5 hover:bg-white/10 transition-all duration-500 shadow-lg shadow-black/20"
                 style={{ animation: "heroFloat 3s ease-in-out infinite" }}
               >
-                <div className="w-14 h-14 rounded-full gradient-bg flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <Phone className="w-6 h-6 text-primary-foreground" />
+                <div className="w-12 h-12 rounded-full gradient-bg flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform duration-300">
+                  <Phone className="w-5 h-5 text-primary-foreground" />
                 </div>
                 <div>
-                  <p className="text-xs font-medium uppercase tracking-wider" style={{ color: "hsla(0,0%,100%,0.6)" }}>Call Us Now</p>
-                  <p className="text-xl font-bold font-heading" style={{ color: "white" }}>+91-7305062227</p>
+                  <p className="text-xs font-medium uppercase tracking-wider" style={{ color: "hsla(0,0%,100%,0.5)" }}>Call Us Now</p>
+                  <p className="text-lg font-bold font-heading" style={{ color: "white" }}>+91-7305062227</p>
                 </div>
               </a>
             </div>
@@ -133,17 +147,17 @@ const HeroSlider = () => {
       </div>
 
       {/* Nav arrows */}
-      <button onClick={() => go(-1)} className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/20 hover:bg-background/40 backdrop-blur-sm rounded-full p-2 transition-colors" style={{ color: "white" }} aria-label="Previous">
-        <ChevronLeft className="w-6 h-6" />
+      <button onClick={() => go(-1)} className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/5 hover:bg-white/15 backdrop-blur-md rounded-full p-2.5 transition-all border border-white/10" style={{ color: "white" }} aria-label="Previous">
+        <ChevronLeft className="w-5 h-5" />
       </button>
-      <button onClick={() => go(1)} className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/20 hover:bg-background/40 backdrop-blur-sm rounded-full p-2 transition-colors" style={{ color: "white" }} aria-label="Next">
-        <ChevronRight className="w-6 h-6" />
+      <button onClick={() => go(1)} className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/5 hover:bg-white/15 backdrop-blur-md rounded-full p-2.5 transition-all border border-white/10" style={{ color: "white" }} aria-label="Next">
+        <ChevronRight className="w-5 h-5" />
       </button>
 
       {/* Dots */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
         {slides.map((_, i) => (
-          <button key={i} onClick={() => { setTextVisible(false); setTimeout(() => { setCurrent(i); setTextVisible(true); }, 400); }} className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-8 bg-secondary" : "w-3 bg-white/40"}`} aria-label={`Slide ${i + 1}`} />
+          <button key={i} onClick={() => { setTextVisible(false); setTimeout(() => { setCurrent(i); setTextVisible(true); }, 400); }} className={`h-2 rounded-full transition-all duration-300 ${i === current ? "w-8 gradient-bg" : "w-3 bg-white/20"}`} aria-label={`Slide ${i + 1}`} />
         ))}
       </div>
     </section>
