@@ -1,5 +1,6 @@
 import Layout from "@/components/layout/Layout";
-import { Building2, FlaskConical, HeartPulse, Accessibility } from "lucide-react";
+import PageHero from "@/components/layout/PageHero";
+import { Building2, FlaskConical, HeartPulse, Accessibility, Lightbulb } from "lucide-react";
 
 const solutions = [
   { icon: Building2, title: "Hospital Equipment Supply", desc: "Complete end-to-end hospital equipment planning, procurement and installation. We handle everything from needs assessment to final commissioning of equipment across all departments." },
@@ -10,12 +11,7 @@ const solutions = [
 
 const Solutions = () => (
   <Layout>
-    <section className="gradient-bg py-20">
-      <div className="container text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-primary-foreground mb-4">Our Solutions</h1>
-        <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">Customized healthcare equipment solutions for every type of medical facility</p>
-      </div>
-    </section>
+    <PageHero title="Our Solutions" subtitle="Customized healthcare equipment solutions for every type of medical facility" icon1={Lightbulb} icon2={HeartPulse} />
 
     <section className="section-padding">
       <div className="container space-y-12">

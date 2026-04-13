@@ -1,7 +1,8 @@
 import Layout from "@/components/layout/Layout";
+import PageHero from "@/components/layout/PageHero";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Package, Cpu } from "lucide-react";
 import productInjector from "@/assets/product-injector-single.jpg";
 import productMobileXray from "@/assets/product-mobile-xray.jpg";
 import productFixedXray from "@/assets/product-fixed-xray.jpg";
@@ -22,12 +23,7 @@ const products = [
 
 const Products = () => (
   <Layout>
-    <section className="gradient-bg py-20">
-      <div className="container text-center">
-        <h1 className="text-4xl md:text-5xl font-extrabold font-heading text-primary-foreground mb-4">Our Products</h1>
-        <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-          Make in India medical diagnostic devices of world-class quality
-        </p>
+    <PageHero title="Our Products" subtitle="Make in India medical diagnostic devices of world-class quality" icon1={Package} icon2={Cpu} />
       </div>
     </section>
 
