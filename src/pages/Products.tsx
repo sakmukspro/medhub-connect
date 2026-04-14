@@ -7,7 +7,7 @@ import productInjector from "@/assets/product-injector-single.jpg";
 import productMobileXray from "@/assets/product-mobile-xray.jpg";
 import productFixedXray from "@/assets/product-fixed-xray.jpg";
 import productCArm from "@/assets/product-c-arm.jpg";
-import productCathlab from "@/assets/product-mobile-cathlab.jpg";
+
 import productDicom from "@/assets/product-dicom-printer.jpg";
 import productDisplay from "@/assets/product-medical-display.jpg";
 
@@ -16,7 +16,7 @@ const products = [
   { name: "Mobile X-Ray", desc: "Portable digital X-ray systems designed for bedside imaging, emergency rooms, and ICU departments.", image: productMobileXray, slug: "mobile-x-ray" },
   { name: "Fixed X-Ray", desc: "Digital fixed X-ray systems with high-resolution imaging for radiology departments and diagnostic centers.", image: productFixedXray, slug: "fixed-x-ray" },
   { name: "Surgical C-Arm", desc: "High-performance C-Arm systems with flat panel detector technology for surgical and orthopedic imaging.", image: productCArm, slug: "surgical-c-arm" },
-  { name: "Mobile Cathlab", desc: "Fully equipped mobile catheterization laboratory for cardiac procedures in remote and underserved areas.", image: productCathlab, slug: "mobile-cathlab" },
+  
   { name: "DICOM Film Printer", desc: "RadPing Thermal Imaging Printer with DICOM format output. Features low fog, high sharpness, and high max density for superior diagnostic imaging.", image: productDicom, slug: "dicom-film-printer" },
   { name: "Medical Display Monitor", desc: "High-resolution diagnostic display monitors calibrated for radiology workstations and PACS viewing.", image: productDisplay, slug: "medical-display-monitor" },
 ];

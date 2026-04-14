@@ -25,9 +25,10 @@ const models = [
     ],
     specs: [
       ["Flow Rate", "0.1 to 9.9 ml/sec in 0.1 ml/sec increments"],
-      ["Syringe Capacity", "100 ml (Zenith-C10) / 200 ml (Zenith-C20)"],
-      ["Compatible Systems", "CT Scanners"],
-      ["Control", "Computer-controlled system"],
+      ["Syringe Capacity", "Zenith S – 200 ml"],
+      ["Volume", "1 ml to syringe capacity in 0.1 ml increments"],
+      ["Preset Limit", "50 psi default, user settable 100 to 300 psi"],
+      ["Injection/Scan Delay", "0 to 99 seconds in 1 sec increments"],
     ],
   },
   {
@@ -44,10 +45,10 @@ const models = [
     ],
     specs: [
       ["Flow Rate", "0.1 to 10 ml/sec in 0.1 ml/sec increments"],
-      ["Syringe Capacity", "100 ml (Zenith-C11) / 200 ml (Zenith-C22)"],
+      ["Syringe Capacity", "Zenith D – 200 ml"],
       ["Volume", "1 ml to syringe capacity in 0.1 ml increments"],
-      ["Pressure Limit", "325 psi default, user settable 100–300 psi"],
-      ["Scan Delay", "0 to 600 seconds in 1 sec increments"],
+      ["Preset Limit", "325 psi default, user settable 100 to 300 psi"],
+      ["Injection/Scan Delay", "0 to 600 seconds in 1 sec increments"],
     ],
   },
   {
