@@ -1,66 +1,43 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Layout from "@/components/layout/Layout";
 import PageHero from "@/components/layout/PageHero";
 import { X, ZoomIn, Camera, Images } from "lucide-react";
 
-// Import all product/gallery images
-import injectorSingle from "@/assets/injector-single.jpg";
-import injectorDual from "@/assets/injector-dual.jpg";
-import injectorAngio from "@/assets/injector-angio.jpg";
-import injectorMri from "@/assets/injector-mri.jpg";
-import productInjector from "@/assets/product-injector-single.jpg";
-import productMobileXray from "@/assets/product-mobile-xray.jpg";
-import productFixedXray from "@/assets/product-fixed-xray.jpg";
-import productCArm from "@/assets/product-c-arm.jpg";
-import productCathlab from "@/assets/product-mobile-cathlab.jpg";
-import productDicom from "@/assets/product-dicom-printer.jpg";
-import productDisplay from "@/assets/product-medical-display.jpg";
-import serviceInstallation from "@/assets/service-installation.jpg";
-import serviceMaintenance from "@/assets/service-maintenance.jpg";
-import serviceTraining from "@/assets/service-training.jpg";
-import serviceWarranty from "@/assets/service-warranty.jpg";
-import serviceSpareparts from "@/assets/service-spareparts.jpg";
-import solutionHospital from "@/assets/solution-hospital.jpg";
-import solutionDiagnostic from "@/assets/solution-diagnostic.jpg";
-import solutionIcu from "@/assets/solution-icu.jpg";
-import solutionMobility from "@/assets/solution-mobility.jpg";
+// Auto-import all images from gallery subfolders at build time
+const teamImages = import.meta.glob<{ default: string }>("@/assets/gallery/Team/*.(jpg|jpeg|png|webp)", { eager: true });
+const productImages = import.meta.glob<{ default: string }>("@/assets/gallery/Product/*.(jpg|jpeg|png|webp)", { eager: true });
+const clientPlaceImages = import.meta.glob<{ default: string }>("@/assets/gallery/ClientPlace/*.(jpg|jpeg|png|webp)", { eager: true });
 
-const categories = ["All", "Team", "Product", "Client Place", "Others"];
+const categories = ["All", "Team", "Product", "Client Place"];
 
-const galleryImages = [
-  // Product
-  { src: productMobileXray, title: "Mobile X-Ray System", category: "Product" },
-  { src: productFixedXray, title: "Fixed X-Ray System", category: "Product" },
-  { src: productCArm, title: "Surgical C-Arm", category: "Product" },
-  { src: productDicom, title: "DICOM Film Printer", category: "Product" },
-  { src: productDisplay, title: "Medical Display Monitor", category: "Product" },
-  { src: injectorSingle, title: "Single Head CT Injector", category: "Product" },
-  { src: injectorDual, title: "Dual Head CT Injector", category: "Product" },
-  { src: injectorAngio, title: "Angio Injector", category: "Product" },
-  { src: injectorMri, title: "MRI Injector", category: "Product" },
-  { src: productInjector, title: "Contrast Media Injector", category: "Product" },
-  { src: productCathlab, title: "Mobile Cathlab", category: "Product" },
+function extractTitle(path: string): string {
+  const filename = path.split("/").pop() || "";
+  return filename
+    .replace(/\.(jpg|jpeg|png|webp)$/i, "")
+    .replace(/[-_]/g, " ")
+    .replace(/\b\w/g, (c) => c.toUpperCase());
+}
 
-  // Team — add your team images here
-  // { src: teamImage1, title: "Team Member Name", category: "Team" },
-
-  // Client Place — add client/installation images here
-  { src: solutionHospital, title: "Hospital Infrastructure", category: "Client Place" },
-  { src: solutionDiagnostic, title: "Diagnostic Center Setup", category: "Client Place" },
-  { src: solutionIcu, title: "ICU Equipment Setup", category: "Client Place" },
-  { src: solutionMobility, title: "Franchise Model Solutions", category: "Client Place" },
-
-  // Others
-  { src: serviceInstallation, title: "Equipment Installation", category: "Others" },
-  { src: serviceMaintenance, title: "Maintenance & Repairs", category: "Others" },
-  { src: serviceTraining, title: "Staff Training", category: "Others" },
-  { src: serviceWarranty, title: "Warranty Support", category: "Others" },
-  { src: serviceSpareparts, title: "Spare Parts Supply", category: "Others" },
-];
+function buildGalleryItems(
+  modules: Record<string, { default: string }>,
+  category: string
+) {
+  return Object.entries(modules).map(([path, mod]) => ({
+    src: mod.default,
+    title: extractTitle(path),
+    category,
+  }));
+}
 
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [lightbox, setLightbox] = useState<{ src: string; title: string } | null>(null);
+
+  const galleryImages = useMemo(() => [
+    ...buildGalleryItems(teamImages, "Team"),
+    ...buildGalleryItems(productImages, "Product"),
+    ...buildGalleryItems(clientPlaceImages, "Client Place"),
+  ], []);
 
   const filtered = activeCategory === "All" ? galleryImages : galleryImages.filter((img) => img.category === activeCategory);
 
@@ -69,7 +46,6 @@ const Gallery = () => {
     Team: "from-[hsl(310,60%,42%)] to-[hsl(280,60%,50%)]",
     Product: "from-[hsl(30,90%,55%)] to-[hsl(15,80%,50%)]",
     "Client Place": "from-[hsl(175,60%,40%)] to-[hsl(200,60%,45%)]",
-    Others: "from-[hsl(0,70%,50%)] to-[hsl(340,60%,45%)]",
   };
 
   return (
@@ -94,11 +70,6 @@ const Gallery = () => {
               </button>
             ))}
           </div>
-
-          {/* Info note */}
-          <p className="text-center text-xs text-muted-foreground mb-6 italic">
-            💡 To add images: import them in this file and add an entry to the galleryImages array with the appropriate category.
-          </p>
 
           {/* Image grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
@@ -132,7 +103,7 @@ const Gallery = () => {
           </div>
 
           {filtered.length === 0 && (
-            <p className="text-center text-muted-foreground py-12">No images found in this category.</p>
+            <p className="text-center text-muted-foreground py-12">No images found in this category. Add images to <code className="bg-muted px-2 py-1 rounded text-xs">src/assets/gallery/{activeCategory === "Client Place" ? "ClientPlace" : activeCategory}/</code> and they'll appear automatically.</p>
           )}
         </div>
       </section>
