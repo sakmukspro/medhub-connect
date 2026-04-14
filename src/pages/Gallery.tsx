@@ -66,10 +66,10 @@ const Gallery = () => {
 
   const categoryColors: Record<string, string> = {
     All: "from-primary to-secondary",
-    Radiology: "from-[hsl(310,60%,42%)] to-[hsl(280,60%,50%)]",
-    Products: "from-[hsl(30,90%,55%)] to-[hsl(15,80%,50%)]",
-    "Critical Care": "from-[hsl(0,70%,50%)] to-[hsl(340,60%,45%)]",
-    Others: "from-[hsl(175,60%,40%)] to-[hsl(200,60%,45%)]",
+    Team: "from-[hsl(310,60%,42%)] to-[hsl(280,60%,50%)]",
+    Product: "from-[hsl(30,90%,55%)] to-[hsl(15,80%,50%)]",
+    "Client Place": "from-[hsl(175,60%,40%)] to-[hsl(200,60%,45%)]",
+    Others: "from-[hsl(0,70%,50%)] to-[hsl(340,60%,45%)]",
   };
 
   return (
