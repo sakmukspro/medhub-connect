@@ -25,27 +25,30 @@ import solutionDiagnostic from "@/assets/solution-diagnostic.jpg";
 import solutionIcu from "@/assets/solution-icu.jpg";
 import solutionMobility from "@/assets/solution-mobility.jpg";
 
-const categories = ["All", "Radiology", "Products", "Critical Care", "Others"];
+const categories = ["All", "Team", "Product", "Client Place", "Others"];
 
 const galleryImages = [
-  // Radiology
-  { src: productMobileXray, title: "Mobile X-Ray System", category: "Radiology" },
-  { src: productFixedXray, title: "Fixed X-Ray System", category: "Radiology" },
-  { src: productCArm, title: "Surgical C-Arm", category: "Radiology" },
-  { src: productDicom, title: "DICOM Film Printer", category: "Radiology" },
-  { src: productDisplay, title: "Medical Display Monitor", category: "Radiology" },
+  // Product
+  { src: productMobileXray, title: "Mobile X-Ray System", category: "Product" },
+  { src: productFixedXray, title: "Fixed X-Ray System", category: "Product" },
+  { src: productCArm, title: "Surgical C-Arm", category: "Product" },
+  { src: productDicom, title: "DICOM Film Printer", category: "Product" },
+  { src: productDisplay, title: "Medical Display Monitor", category: "Product" },
+  { src: injectorSingle, title: "Single Head CT Injector", category: "Product" },
+  { src: injectorDual, title: "Dual Head CT Injector", category: "Product" },
+  { src: injectorAngio, title: "Angio Injector", category: "Product" },
+  { src: injectorMri, title: "MRI Injector", category: "Product" },
+  { src: productInjector, title: "Contrast Media Injector", category: "Product" },
+  { src: productCathlab, title: "Mobile Cathlab", category: "Product" },
 
-  // Products
-  { src: injectorSingle, title: "Single Head CT Injector", category: "Products" },
-  { src: injectorDual, title: "Dual Head CT Injector", category: "Products" },
-  { src: injectorAngio, title: "Angio Injector", category: "Products" },
-  { src: injectorMri, title: "MRI Injector", category: "Products" },
-  { src: productInjector, title: "Contrast Media Injector", category: "Products" },
+  // Team — add your team images here
+  // { src: teamImage1, title: "Team Member Name", category: "Team" },
 
-  // Critical Care
-  { src: productCathlab, title: "Mobile Cathlab", category: "Critical Care" },
-  { src: solutionIcu, title: "ICU Equipment Setup", category: "Critical Care" },
-  { src: solutionHospital, title: "Hospital Infrastructure", category: "Critical Care" },
+  // Client Place — add client/installation images here
+  { src: solutionHospital, title: "Hospital Infrastructure", category: "Client Place" },
+  { src: solutionDiagnostic, title: "Diagnostic Center Setup", category: "Client Place" },
+  { src: solutionIcu, title: "ICU Equipment Setup", category: "Client Place" },
+  { src: solutionMobility, title: "Franchise Model Solutions", category: "Client Place" },
 
   // Others
   { src: serviceInstallation, title: "Equipment Installation", category: "Others" },
@@ -53,8 +56,6 @@ const galleryImages = [
   { src: serviceTraining, title: "Staff Training", category: "Others" },
   { src: serviceWarranty, title: "Warranty Support", category: "Others" },
   { src: serviceSpareparts, title: "Spare Parts Supply", category: "Others" },
-  { src: solutionDiagnostic, title: "Diagnostic Center Setup", category: "Others" },
-  { src: solutionMobility, title: "Franchise Model Solutions", category: "Others" },
 ];
 
 const Gallery = () => {

@@ -12,6 +12,14 @@ const Footer = () => (
           <p className="text-sm leading-relaxed mb-4">
             RADPING IMAGING PVT LTD is a Hospital Equipment Solution Providing Company specializing in Radiology, Cardiology, Dental and Critical Care.
           </p>
+          <div className="flex gap-3">
+            <a href="https://www.linkedin.com/company/radpingimaging/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-background/10 hover:bg-secondary/20 flex items-center justify-center transition-colors">
+              <Linkedin className="w-4 h-4 text-background hover:text-secondary" />
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-background/10 hover:bg-secondary/20 flex items-center justify-center transition-colors">
+              <Youtube className="w-4 h-4 text-background hover:text-secondary" />
+            </a>
+          </div>
         </div>
 
         {/* Quick Links */}
