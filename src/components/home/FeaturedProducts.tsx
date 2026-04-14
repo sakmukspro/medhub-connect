@@ -15,7 +15,7 @@ const products = [
   { name: "Fixed X-Ray", desc: "Digital fixed X-ray systems for radiology departments", image: productFixedXray, slug: "fixed-x-ray" },
   { name: "Surgical C-Arm", desc: "High-performance C-Arm with flat panel detector for surgical imaging", image: productCArm, slug: "surgical-c-arm" },
   { name: "Mobile Cathlab", desc: "Mobile catheterization laboratory for cardiac procedures", image: productCathlab, slug: "mobile-cathlab" },
-  { name: "DICOM Film Printer", desc: "Medical film printer for DICOM compatible imaging output", image: productDicom, slug: "dicom-film-printer" },
+  { name: "DICOM Film Printer", desc: "RadPing Thermal Imaging Printer with DICOM format output – low fog, high sharpness, high max density", image: productDicom, slug: "dicom-film-printer" },
   { name: "Medical Display Monitor", desc: "High-resolution diagnostic display monitors for radiology workstations", image: productDisplay, slug: "medical-display-monitor" },
 ];
 
