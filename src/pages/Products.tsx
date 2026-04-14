@@ -7,7 +7,7 @@ import productInjector from "@/assets/product-injector-single.jpg";
 import productMobileXray from "@/assets/product-mobile-xray.jpg";
 import productFixedXray from "@/assets/product-fixed-xray.jpg";
 import productCArm from "@/assets/product-c-arm.jpg";
-import productCathlab from "@/assets/product-mobile-cathlab.jpg";
+
 import productDicom from "@/assets/product-dicom-printer.jpg";
 import productDisplay from "@/assets/product-medical-display.jpg";
 
