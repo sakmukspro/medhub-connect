@@ -27,7 +27,7 @@ const FeaturedProducts = () => (
         <h2 className="section-title mt-2">Featured Products</h2>
         <p className="section-subtitle">Make in India medical diagnostic devices of world-class quality</p>
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((p) => (
           <div key={p.name} className="bg-card rounded-xl border border-border overflow-hidden group hover:border-primary/30 transition-colors" style={{ boxShadow: "var(--shadow-card)" }}>
             <div className="h-48 overflow-hidden">
