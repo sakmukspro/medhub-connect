@@ -44,7 +44,6 @@ const navItems: NavItem[] = [
       { label: "Mobile X-Ray", path: "/products/mobile-x-ray" },
       { label: "Fixed X-Ray", path: "/products/fixed-x-ray" },
       { label: "Surgical C-Arm", path: "/products/surgical-c-arm" },
-      { label: "Mobile Cathlab", path: "/products/mobile-cathlab" },
       { label: "DICOM Film Printer", path: "/products/dicom-film-printer" },
       { label: "Medical Display Monitor", path: "/products/medical-display-monitor" },
     ],
