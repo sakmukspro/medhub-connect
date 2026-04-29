@@ -153,7 +153,7 @@ const Contact = () => (
             {/* Map */}
             <div className="rounded-2xl overflow-hidden border border-border shadow-sm flex-1 min-h-[250px]">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.0!2d80.21!3d13.01!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDAwJzM2LjAiTiA4MMKwMTInMzYuMCJF!5e0!3m2!1sen!2sin!4v1"
+                src="https://www.google.com/maps?q=Plot+No.B3%2F5B%2C+CMDA+Industrial+Complex%2C+Kamarajar+Salai%2C+Maraimalai+Nagar%2C+Chengalpattu%2C+Tamil+Nadu+603209&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
