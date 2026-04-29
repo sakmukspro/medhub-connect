@@ -115,10 +115,11 @@ const Contact = () => (
                 <div className="flex gap-3">
                   <MapPin className="w-5 h-5 flex-shrink-0 mt-0.5 opacity-80" />
                   <p className="text-sm opacity-90">
-                    Block-1, Unit No:37, Third Floor,<br />
-                    SIDCO Electronic Complex,<br />
-                    Thiru Vi Ka Industrial Estate,<br />
-                    Guindy, Chennai - 600032
+                    Plot No.B3/5B,<br />
+                    CMDA's Industrial Complex,<br />
+                    Kamarajar Salai, Maraimalai Nagar,<br />
+                    Chengalpattu, Chennai,<br />
+                    Tamil Nadu, India - 603209
                   </p>
                 </div>
                 <div className="flex items-center gap-3">

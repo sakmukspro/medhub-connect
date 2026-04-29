@@ -54,7 +54,7 @@ const Footer = () => (
           <ul className="space-y-3 text-sm">
             <li className="flex gap-2">
               <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-secondary" />
-              Block-1, Unit No:37, Third Floor, SIDCO Electronic Complex, Guindy, Chennai - 600032
+              Plot No.B3/5B, CMDA's Industrial Complex, Kamarajar Salai, Maraimalai Nagar, Chengalpattu, Chennai, Tamil Nadu, India - 603209
             </li>
             <li className="flex items-center gap-2">
               <Phone className="w-4 h-4 flex-shrink-0 text-secondary" />
